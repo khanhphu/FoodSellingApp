@@ -34,7 +34,7 @@
             android:layout_marginRight="30dp"
             android:backgroundTint="@color/vangNhatHon"
             app:cardCornerRadius="30dp"
-            app:cardElevation="20dp">
+           >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -89,10 +89,10 @@
                                         android:background="@drawable/txt_frame_img"
                                         android:hint="Password"
                                         android:drawablePadding="8dp"
-                                        android:drawableRight="@drawable/pass_ic"
+                                        android:drawableLeft="@drawable/pass_ic"
                                         android:inputType="textPassword"
                                         android:paddingLeft="10dp"
-                      android:drawableLeft="@drawable/showpass_ic"
+                      android:drawableRight="@drawable/showpass_ic"
                                         android:textColor="@color/black"/>
 
 
