@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="cam">#FFA45B</color>
+    <color name="camDam">#F36A00</color>
+    <color name="vangNhat">#FFDA77</color>
+    <color name="trangNga">#FBF6F0</color>
+    <color name="vangNhatHon">#FEFFD2</color>
+
 </resources>
