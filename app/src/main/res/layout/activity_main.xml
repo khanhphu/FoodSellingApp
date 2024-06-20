@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     tools:context=".MainActivity">
 
     <Button
@@ -29,5 +30,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRegis" />
+    <Button
+        android:id="@+id/btnTestNavMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="141dp"
+        android:text="Nav Menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLog" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
