@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:id="@+id/itemView"
+    android:layout_height="wrap_content"
+    android:elevation="10dp"
+    android:layout_margin="10dp"
+    android:layout_marginBottom="10dp">
+
+    <LinearLayout
+        android:layout_margin="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:id="@+id/menuHinhMon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:src="@drawable/imgmon1"/>
+<View
+    android:layout_gravity="center"
+    android:layout_width="120dp"
+    android:layout_height="1dp"
+    android:background="@color/camDam"/>
+            <TextView
+                android:id="@+id/menuTen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ten mon"
+                />
+            <TextView
+                android:id="@+id/menuGia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gia"
+                android:textSize="10sp"
+                android:textColor="@color/camDam"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+           <TextView
+               android:id="@+id/menuKM"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Khuyen mai"
+               android:textSize="8sp"/>
+            <TextView
+                android:paddingLeft="5dp"
+                android:drawableLeft="@drawable/ic_time"
+                android:id="@+id/menuTgianCho"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Thoi gian cho"
+               android:textSize="8sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_star"/>   <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_star"/>   <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_star"/>   <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_star"/>   <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_star"/>
+<!--            <TextView-->
+<!--                android:id="@+id/menuMaMon"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"/>-->
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

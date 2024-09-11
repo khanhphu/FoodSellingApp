@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "90402639428",
-    "project_id": "food-selling-app-a1fce",
-    "storage_bucket": "food-selling-app-a1fce.appspot.com"
+    "project_number": "213100764648",
+    "project_id": "food-selling-app-e9f30",
+    "storage_bucket": "food-selling-app-e9f30.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:90402639428:android:91752c3ff842b3c4e57611",
+        "mobilesdk_app_id": "1:213100764648:android:c2b9bcdb3c2b113bff585d",
         "android_client_info": {
           "package_name": "com.example.foodsellingapp"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB3fcXWyDdXpFD-3mjfMTYmHg7AQmb4pIk"
+          "current_key": "AIzaSyDerJmTR4ZYRiUISYXeSkQzuT_efYz0GQE"
         }
       ],
       "services": {

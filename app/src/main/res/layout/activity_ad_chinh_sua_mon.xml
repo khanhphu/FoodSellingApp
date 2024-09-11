@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/vangNhat"
+    tools:context=".Ad_ChinhSuaMon">
+    <LinearLayout
+        android:id="@+id/secAddCK"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <androidx.cardview.widget.CardView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="30dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/btnback"
+                        android:layout_marginLeft="5dp"
+                        android:background="@color/white"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_back"/>
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="3dp"
+                    android:src="@drawable/logofood_ic"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:text="Chỉnh sửa món ăn"
+                    android:textAllCaps="true"
+                    android:paddingBottom="10dp"/>
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_addimg"
+                    android:id="@+id/imgMon"/>
+                <EditText
+                    android:id="@+id/edtMaMon"
+                    android:layout_width="280dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/khungtext"
+                    android:hint="Nhập mã món"
+                    android:paddingLeft="10dp"
+                    android:layout_margin="8dp"
+                    android:enabled="false"
+                    android:maxLines="1"/>
+                <EditText
+                    android:id="@+id/edtTenMon"
+                    android:layout_width="280dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/khungtext"
+                    android:hint="Nhập tên món"
+                    android:paddingLeft="10dp"
+                    android:layout_margin="8dp"
+                    android:maxLines="1"/>
+                <EditText
+                    android:id="@+id/edtGia"
+                    android:layout_width="280dp"
+                    android:layout_height="50dp"
+                    android:maxLength="200"
+                    android:paddingLeft="10dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/khungtext"
+                    android:hint="Giá"
+                    android:inputType="number"
+                    android:isScrollContainer="true"
+                    />
+                <EditText
+                    android:id="@+id/edtPhuThu"
+                    android:layout_width="280dp"
+                    android:layout_height="50dp"
+                    android:maxLength="200"
+                    android:paddingLeft="10dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/khungtext"
+                    android:hint="Phụ thu"
+                    android:inputType="number"
+                    android:isScrollContainer="true"
+                    />
+                <EditText
+                    android:id="@+id/edtGioiThieu"
+                    android:layout_width="280dp"
+                    android:layout_height="50dp"
+                    android:maxLength="200"
+                    android:paddingLeft="10dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/khungtext"
+                    android:hint="Giới thiệu"
+                    android:isScrollContainer="true"
+                    />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/btnSaveMon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="Save"/>
+                    <Button
+                        android:id="@+id/btnCancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="Cancel"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+</ScrollView>

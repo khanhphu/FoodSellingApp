@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+<item
+    android:id="@+id/btnhome"
+    android:title="Home"
+    android:icon="@drawable/ic_home"/>
+    <item
+        android:id="@+id/btnOrder"
+    android:title="Order"
+    android:icon="@drawable/ic_order"/>
+    <item
+        android:id="@+id/btnShopCart"
+    android:title="Shopping Card"
+    android:icon="@drawable/ic_shoppingcart"/>
+    <item
+        android:id="@+id/btnVou"
+    android:title="Voucher"
+    android:icon="@drawable/ic_voucher"/>
+    <item
+        android:id="@+id/btnMenu"
+    android:title="Menu"
+    android:icon="@drawable/ic_admenu"/>
+
+
+
+
+</menu>

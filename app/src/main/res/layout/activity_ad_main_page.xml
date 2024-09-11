@@ -17,8 +17,9 @@
         android:background="@drawable/bgtop_admin"
         android:paddingTop="10dp"
         android:text="Admin Dashboard"
+        android:fontFamily="sans-serif-condensed"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +44,6 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
             app:cardCornerRadius="10dp"
-            app:cardElevation="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -113,9 +113,10 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:layout_margin="10dp"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:src="@drawable/user_ic" />
+                        android:src="@drawable/fashionista" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -155,6 +156,7 @@
                 app:cardCornerRadius="10dp">
 
                 <LinearLayout
+                    android:id="@+id/secAddMon"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
@@ -170,7 +172,7 @@
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:contentDescription="lich"
-                            android:src="@drawable/user_ic"
+                            android:src="@drawable/ic_userpro52"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -180,7 +182,9 @@
                         android:id="@+id/textView5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="User infor"
+                        android:text="Thêm món"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/black"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -189,6 +193,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/secDSachMon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -210,7 +215,7 @@
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:contentDescription="lich"
-                            android:src="@drawable/user_ic"
+                            android:src="@drawable/ic_edit"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -220,7 +225,10 @@
                         android:id="@+id/textView4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="User infor"
+                        android:text="Sửa món"
+                        android:fontFamily="sans-serif-condensed"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -245,6 +253,7 @@
             app:layout_constraintVertical_bias="0.089">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/secDonHang"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -266,7 +275,7 @@
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:contentDescription="lich"
-                            android:src="@drawable/user_ic"
+                            android:src="@drawable/ic_adorder"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -276,7 +285,9 @@
                         android:id="@+id/textView3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="User infor"
+                        android:text="Đơn hàng"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/black"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -285,6 +296,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/secThucDon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -305,8 +317,8 @@
                             android:id="@+id/imageView0"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:contentDescription="lich"
-                            android:src="@drawable/user_ic"
+                            android:contentDescription="menu"
+                            android:src="@drawable/ic_admenu"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -316,7 +328,9 @@
                         android:id="@+id/textView2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="User infor"
+                        android:text="Thực đơn"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/black"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -341,6 +355,7 @@
             app:layout_constraintVertical_bias="0.089">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/secKhachHang"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -362,7 +377,7 @@
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:contentDescription="lich"
-                            android:src="@drawable/user_ic"
+                            android:src="@drawable/ic_userpro5"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -372,7 +387,9 @@
                         android:id="@+id/textView9"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="User infor"
+                        android:text="Khách hàng"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/black"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -403,7 +420,7 @@
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:contentDescription="lich"
-                            android:src="@drawable/user_ic"
+                            android:src="@drawable/ic_signout"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -413,7 +430,9 @@
                         android:id="@+id/textView8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Log Out"
+                        android:text="Thoát"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/black"
                         android:textAlignment="center" />
 
                 </LinearLayout>
