@@ -4,5 +4,7 @@
     <string name="close_nav" translatable="false">Close Navigation Drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="detail4mon">
+    Classic Italian dish made with leavened wheat dough topped with tomato sauce, cheese, and various toppings. Perfect for a quick and satisfying meal, parties,
+</string>
 </resources>

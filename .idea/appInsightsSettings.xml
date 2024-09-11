@@ -24,9 +24,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.foodsellingapp" />
-                  <option name="mobileSdkAppId" value="1:90402639428:android:91752c3ff842b3c4e57611" />
-                  <option name="projectId" value="food-selling-app-a1fce" />
-                  <option name="projectNumber" value="90402639428" />
+                  <option name="mobileSdkAppId" value="1:213100764648:android:c2b9bcdb3c2b113bff585d" />
+                  <option name="projectId" value="food-selling-app-e9f30" />
+                  <option name="projectNumber" value="213100764648" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

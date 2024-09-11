@@ -95,6 +95,7 @@ String email="",pass="";
 
     private void checkUser() {
         FirebaseUser fbUser=fbAuth.getCurrentUser();
+
         //retrieve firestore
         if(fbUser !=null){
             String uid= fbUser.getUid();
@@ -108,7 +109,7 @@ String email="",pass="";
                        // dua vao uid de lay ra thong tin user r dua vao usertype de pq admin hay userbth
                         String userType=doc.getString("userType");
                         if(userType.equals("user")){
-                            startActivity(new Intent(LoginPage.this,MainActivity.class));
+                            startActivity(new Intent(LoginPage.this,User_MainPage.class));
                             finish();
                         }
                         else if(userType.equals("admin")){

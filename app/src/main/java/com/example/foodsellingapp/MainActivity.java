@@ -36,6 +36,6 @@ Button btnRegister, btnLog, btnTestNavMenu;
         });
     }
 //You have done some tasks. Congratulation dude, break a leg !
-    //todo
+
 
 }

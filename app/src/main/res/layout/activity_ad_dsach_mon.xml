@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/camDam"
+    tools:context=".Ad_DSachMon">
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipetorefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<EditText
+        android:layout_margin="20dp"
+        android:id="@+id/secSearch"
+        android:layout_gravity="center"
+    android:layout_width="280dp"
+        android:background="@color/vangNhatHon"
+    android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:paddingLeft="10dp"
+        android:hint="Search"
+        android:drawableLeft="@drawable/ic_serach"
+        android:drawablePadding="10dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listAd_Mon"
+            tools:listitem="@layout/list_admin_mon"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_margin="20dp"/>
+</LinearLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>

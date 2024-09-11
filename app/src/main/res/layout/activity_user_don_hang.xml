@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".User_DonHang">
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnDH"
+                android:drawableLeft="@drawable/ic_order"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/checkout_frame"
+                android:text="Oder"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnMoreDH"
+                android:drawableLeft="@drawable/ic_other"
+                android:layout_width="105dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/checkout_frame"
+                android:text="Others"
+                android:layout_marginLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/checkout_frame"
+                android:drawableLeft="@drawable/ic_home"
+                android:text="Home"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+        <ScrollView
+        android:id="@+id/secOrder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.cardview.widget.CardView
+            android:layout_margin="20dp"
+            app:cardCornerRadius="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:background="@color/cam"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal">
+                <ImageView
+                    android:paddingLeft="3dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logofood_ic"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="40dp"
+                            android:fontFamily="serif"
+                            android:text="Your order"
+                            android:textColor="@color/vangNhatHon"
+                            android:textSize="20sp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:fontFamily="serif"
+                            android:text="Enjoys your meal with us services."
+                            android:textColor="@color/vangNhatHon"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                tools:listitem="@layout/list_user_donhang"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:id="@+id/listOrder"
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/camDam"/>
+            <androidx.cardview.widget.CardView
+                android:background="@color/xam"
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chi Tiết Đơn Hàng"
+                        android:textSize="20sp"
+                        android:textColor="@color/camDam"/>
+                    <LinearLayout
+                        android:layout_margin="20dp"
+                        android:layout_width="410dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Tổng:"
+                            android:textSize="15sp"
+                            android:textColor="@color/camDam"/>
+                        <TextView
+                            android:id="@+id/txtTongDH"
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Tien"
+                            android:textSize="15sp"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_margin="20dp"
+                        android:layout_width="410dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Tên KH:"
+                            android:textSize="15sp"
+                            android:textColor="@color/camDam"/>
+                        <TextView
+                            android:id="@+id/txtTenKHDH"
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="KhachHang01"
+                            android:textSize="15sp"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_margin="20dp"
+                        android:layout_width="410dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Trạng thái:"
+                            android:textSize="15sp"
+                            android:textColor="@color/camDam"/>
+                        <TextView
+                            android:id="@+id/txtTrangThai"
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Trang thai"
+                            android:textSize="15sp"
+                            />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/camDam"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/camDam"
+                        android:text="Vui lòng nhập thông tin"/>
+                    <LinearLayout
+                        android:layout_margin="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="SĐT:"
+                            android:textSize="15sp"
+                            android:textColor="@color/camDam"/>
+                        <EditText
+                            android:padding="10dp"
+                            android:background="@drawable/khungtext"
+                            android:id="@+id/txtSDT"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:hint="..."
+                            android:textSize="15sp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+
+                       android:layout_marginLeft="20dp"
+                        android:layout_width="410dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/camDam"
+                            android:textSize="15sp"
+                            android:text="Vận chuyển:"/>
+                        <RadioGroup
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/grRdt">
+                        <RadioButton
+                            android:id="@+id/rdtGiao"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Giao hàng"/>
+                        <RadioButton
+                            android:id="@+id/rdtLay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Đến lấy"/>
+                        </RadioGroup>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="410dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/camDam"
+                            android:textSize="15sp"
+                            android:text="Thanh toan:"/>
+                        <RadioGroup
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/grRdtPay">
+                        <RadioButton
+                            android:id="@+id/rdtTM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tiền mặt"/>
+                        <RadioButton
+                            android:id="@+id/rdtCK"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chuyển khoản"/>
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_gravity="center"
+                        android:layout_margin="20dp"
+                        android:layout_width="410dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <Button
+                            android:id="@+id/btnSaveDH"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Save"
+                            android:textSize="18sp"
+                            android:textAlignment="center"/>
+                        <Button
+                            android:id="@+id/btnDeleteDH"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Delete"
+                            android:textSize="18sp"
+                            android:textAlignment="center"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </ScrollView>
+
+
+
+    <LinearLayout
+     android:id="@+id/secEmpty"
+     android:layout_gravity="center"
+     android:layout_width="match_parent"
+     android:layout_height="200dp"
+     android:orientation="vertical">
+     <TextView
+         android:layout_gravity="center"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Empty!!!"
+         android:textAllCaps="true"
+         android:textColor="@color/cam"
+         android:textSize="20sp"/>
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_mt"/>
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buy now"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/cam"
+                android:textSize="20sp"/>
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_arrow"/>
+            <ImageView
+                android:id="@+id/btnCart"
+                android:layout_gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_shoppingcart"/>
+        </LinearLayout>
+ </LinearLayout>
+</LinearLayout>

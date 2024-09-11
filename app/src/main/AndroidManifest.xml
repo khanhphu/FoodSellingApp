@@ -13,20 +13,49 @@
         android:theme="@style/Theme.FoodSellingApp"
         tools:targetApi="31">
         <activity
-            android:name=".User_MainPage"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:name=".User_DSDonHang"
             android:exported="false" />
+        <activity
+            android:name=".Ad_DSDonHang"
+            android:exported="false" />
+        <activity
+            android:name=".User_DonHang"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".User_ShoppingCart" -->
+        <!-- android:exported="false" /> -->
+        <activity
+            android:name=".User_ChiTietMon"
+            android:exported="false" />
+        <activity
+            android:name=".User_Menu"
+            android:exported="false" />
+        <activity
+            android:name=".Ad_ChinhSuaMon"
+            android:exported="false" />
+        <activity
+            android:name=".TestPhoneRegister"
+            android:exported="true" />
+        <activity
+            android:name=".TestPhoneAuth"
+            android:exported="false" />
+        <activity
+            android:name=".Ad_DSachMon"
+            android:exported="false" />
+        <activity
+            android:name=".Ad_ThemMon"
+            android:exported="false" />
+        <activity
+            android:name=".User_Pro5"
+            android:exported="false" />
+        <activity
+            android:name=".User_MainPage"
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
             android:name=".Ad_MainPage"
             android:exported="false" />
         <activity
             android:name=".LoginPage"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterPage"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,6 +63,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".RegisterPage"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
