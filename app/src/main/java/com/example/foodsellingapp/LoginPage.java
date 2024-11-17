@@ -53,6 +53,13 @@ private ProgressDialog progressDialog;
                 validateData();
             }
         });
+        //quen mk
+        binding.txtForgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginPage.this, ForgotPassActivity.class));
+            }
+        });
 
     }
 String email="",pass="";
