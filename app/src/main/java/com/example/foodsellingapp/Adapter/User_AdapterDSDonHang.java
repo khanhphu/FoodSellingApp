@@ -53,18 +53,20 @@ public class User_AdapterDSDonHang extends RecyclerView.Adapter<User_AdapterDSDo
     public void onBindViewHolder(@NonNull HolderDSDH holder, int position) {
 
             DonHang donHang=arrayList.get(position);
-            if(donHang.getTrangThai().equals("choXacNhan")){
+
+            if(donHang.getTrangThai().equals("XacNhan")){
+            holder.txtTrangThai.setText("Xác nhận");
+            holder.btnXacNhan.setVisibility(View.INVISIBLE);
+            holder.btnDelete.setVisibility(View.INVISIBLE);
+            }
+
+            else if(donHang.getTrangThai().equals("choXacNhan")){
                 holder.txtTrangThai.setText("Chờ xác nhận");
             }
-            else  if(donHang.getTrangThai().equals("XacNhan")){
-                holder.txtTrangThai.setText("Xác nhận");
-                holder.btnXacNhan.setVisibility(View.GONE);
-                holder.btnDelete.setVisibility(View.GONE);
-            }
-            else  if(donHang.getTrangThai().equals("Huy")){
+            else if(donHang.getTrangThai().equals("Huy")){
                 holder.txtTrangThai.setText("Hủy");
-                holder.btnXacNhan.setVisibility(View.GONE);
-                holder.btnDelete.setVisibility(View.GONE);
+                holder.btnXacNhan.setVisibility(View.INVISIBLE);
+                holder.btnDelete.setVisibility(View.INVISIBLE);
             }
 
             holder.txtTong.setText(""+donHang.getTongCong());
@@ -95,7 +97,7 @@ public class User_AdapterDSDonHang extends RecyclerView.Adapter<User_AdapterDSDo
                                     holder.txtTrangThai.setText("Xác nhận");
                                     holder.btnXacNhan.setVisibility(View.GONE);
                                     holder.btnDelete.setVisibility(View.GONE);
-                                    Toast.makeText(context, "Xac nhan don!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, "Xác nhận đơn!", Toast.LENGTH_SHORT).show();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -118,7 +120,7 @@ public class User_AdapterDSDonHang extends RecyclerView.Adapter<User_AdapterDSDo
                                 public void onSuccess(Void unused) {
                                     holder.btnXacNhan.setVisibility(View.GONE);
                                     holder.btnDelete.setVisibility(View.GONE);
-                                    Toast.makeText(context, "Huy don!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, "Hủy đơn!", Toast.LENGTH_SHORT).show();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
