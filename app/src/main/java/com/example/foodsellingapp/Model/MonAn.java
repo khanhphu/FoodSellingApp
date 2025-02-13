@@ -9,13 +9,14 @@ public class MonAn implements Serializable {
    private String url;
    private int phuThu;
    private String gioiThieu;
+   private int soLuong;
    //shopping cart
     private int numberinCart;
 
     public MonAn() {
     }
 
-    public MonAn(int gia, String maMon, String tenMon, String url, int phuThu, String gioiThieu, int numberinCart) {
+    public MonAn(int gia, String maMon, String tenMon, String url, int phuThu, String gioiThieu, int numberinCart, int soLuong) {
         this.gia = gia;
         this.maMon = maMon;
         this.tenMon = tenMon;
@@ -23,6 +24,7 @@ public class MonAn implements Serializable {
         this.phuThu = phuThu;
         this.gioiThieu = gioiThieu;
         this.numberinCart = numberinCart;
+        this.soLuong=soLuong;
     }
 
     public int getGia() {
@@ -79,5 +81,13 @@ public class MonAn implements Serializable {
 
     public void setNumberinCart(int numberinCart) {
         this.numberinCart = numberinCart;
+    }
+
+    public int getSoLuong() {
+        return soLuong;
+    }
+
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
     }
 }

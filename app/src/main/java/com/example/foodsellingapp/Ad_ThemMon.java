@@ -41,7 +41,7 @@ import java.util.HashMap;
 public class Ad_ThemMon extends AppCompatActivity {
     private ActivityAdThemMonBinding binding;
     private String maMon, tenMon;
-    private  int gia, phuThu;
+    private int gia, phuThu, sl;
     private Uri imgUri;
     private ImageView imgMon;
     private ProgressDialog progressDialog;
@@ -53,10 +53,10 @@ public class Ad_ThemMon extends AppCompatActivity {
         binding = ActivityAdThemMonBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         //progressDialog
-        progressDialog=new ProgressDialog(Ad_ThemMon.this);
+        progressDialog = new ProgressDialog(Ad_ThemMon.this);
         progressDialog.setTitle("Please wait..");
         progressDialog.setCanceledOnTouchOutside(false);
-        imgMon=binding.imgMon;
+        imgMon = binding.imgMon;
         //back
         binding.btnback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,29 +96,30 @@ public class Ad_ThemMon extends AppCompatActivity {
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cr.getType(uri));
     }
-private String uploadedImage="";
+
+    private String uploadedImage = "";
+
     public void uploadImage(Uri uri) {
 
-            StorageReference fileref = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
-            fileref.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+        StorageReference fileref = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
+        fileref.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                            Task<Uri> uriTask=taskSnapshot.getStorage().getDownloadUrl();
-                            while (!uriTask.isSuccessful());
-                             uploadedImage=""+uriTask.getResult();
-                             loadMon4FB(uploadedImage);
+                        Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                        while (!uriTask.isSuccessful()) ;
+                        uploadedImage = "" + uriTask.getResult();
+                        loadMon4FB(uploadedImage);
 
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
 
-                        }
-                    });
-        }
-
+                    }
+                });
+    }
 
 
     @Override
@@ -131,27 +132,20 @@ private String uploadedImage="";
     }
 
 
-
     private void checkMon() {
-        FirebaseStorage firebaseStorage=FirebaseStorage.getInstance();
-        if(binding.txtTenMon.getText().toString().equals("") ){
-            Toast.makeText(this, "Ten mon khong de trong!", Toast.LENGTH_SHORT).show();
+        FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+        if (binding.txtTenMon.getText().toString().equals("")) {
+            Toast.makeText(this, "Tên món không để trống!", Toast.LENGTH_SHORT).show();
 
-        }
-        else if(binding.txtGia.getText().toString().equals(""))
-                {
-            Toast.makeText(this, "Gia khong de trong!", Toast.LENGTH_SHORT).show();
-                }
-        else if(Integer.parseInt(binding.txtGia.getText().toString())<=0){
+        } else if (binding.txtGia.getText().toString().equals("")) {
+            Toast.makeText(this, "Giá không để trống!", Toast.LENGTH_SHORT).show();
+        } else if (Integer.parseInt(binding.txtGia.getText().toString()) <= 0) {
             Toast.makeText(this, "Gia khong am", Toast.LENGTH_SHORT).show();
 
-        }
-        else if(imgUri==null) {
+        } else if (imgUri == null) {
             Toast.makeText(this, "Chua co hinh mon an", Toast.LENGTH_SHORT).show();
 
-        }
-
-        else {
+        } else {
             uploadImage(imgUri);
 
         }
@@ -161,28 +155,36 @@ private String uploadedImage="";
     private void loadMon4FB(String uploadedImage) {
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        maMon = binding.txtMaMon.getText().toString().trim();
+      //  maMon = binding.txtMaMon.getText().toString().trim();
+        maMon ="M"+ System.currentTimeMillis();
         tenMon = binding.txtTenMon.getText().toString().trim();
-        gia =Integer.parseInt( binding.txtGia.getText().toString().trim());
-         if(binding.txtPhuThu.getText().toString().equals("")|| Integer.parseInt( binding.txtPhuThu.getText().toString())<=0){
-            phuThu=0;
+        gia = Integer.parseInt(binding.txtGia.getText().toString().trim());
+        if (binding.txtPhuThu.getText().toString().equals("") || Integer.parseInt(binding.txtPhuThu.getText().toString()) <= 0) {
+            phuThu = 0;
 
+        } else {
+            phuThu = Integer.parseInt(binding.txtPhuThu.getText().toString().trim());
         }
-         else{
-             phuThu= Integer.parseInt(binding.txtPhuThu.getText().toString().trim());
-         }
+        //sl
+        if (binding.txtSL.getText().toString().equals("") || Integer.parseInt(binding.txtSL.getText().toString()) <= 0) {
+            sl = 0;
 
-        CollectionReference ref=firestore.collection("MonAn");
+        } else {
+            sl = Integer.parseInt(binding.txtPhuThu.getText().toString().trim());
+        }
 
-        DocumentReference docref=ref.document(maMon);
+        CollectionReference ref = firestore.collection("MonAn");
+
+        DocumentReference docref = ref.document(maMon);
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("maMon",maMon);
-        hashMap.put("tenMon",tenMon);
-        hashMap.put("gia",gia);
-        hashMap.put("phuThu",phuThu);
-        hashMap.put("gioiThieu",binding.txtGioiThieu.getText().toString());
+        hashMap.put("maMon", maMon);
+        hashMap.put("tenMon", tenMon);
+        hashMap.put("gia", gia);
+        hashMap.put("phuThu", phuThu);
+        hashMap.put("soLuong",sl);
+        hashMap.put("gioiThieu", binding.txtGioiThieu.getText().toString());
         //image
-        hashMap.put("url",uploadedImage);
+        hashMap.put("url", uploadedImage);
         docref.set(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -199,4 +201,8 @@ private String uploadedImage="";
         });
 
     }
-}
+
+
+    }
+
+

@@ -50,7 +50,6 @@ FirebaseAuth firebaseAuth;
         });
         firebaseAuth=FirebaseAuth.getInstance();
         FirebaseUser user=firebaseAuth.getCurrentUser();
-        binding.secSearch.setText(user.getEmail());
     }
 
     private void loadMon() {
