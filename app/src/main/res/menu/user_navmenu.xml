@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view"
-
-    >
+    tools:showIn="navigation_view">
 <group android:checkableBehavior="single">
 <item
     android:id="@+id/it_home"
     android:icon="@drawable/ic_home"
     android:title="Home"/>
-
     <item
     android:id="@+id/it_cart"
     android:icon="@drawable/ic_shoppingcart"
@@ -39,10 +36,14 @@
                 android:id="@+id/it_pro5"
                 android:icon="@drawable/ic_userpro5"
                 android:title="Account setting"/>
-            <item
-                android:id="@+id/it_logout"
-                android:icon="@drawable/ic_signout"
-                android:title="Log out"/>
+         <item
+              android:id="@+id/it_logout"
+          android:icon="@drawable/ic_logout"
+             android:title="Log in"/>
+          <item
+               android:id="@+id/it_login"
+              android:icon="@drawable/ic_login"
+             android:title="Log out"/>
         </menu>
     </item>
 

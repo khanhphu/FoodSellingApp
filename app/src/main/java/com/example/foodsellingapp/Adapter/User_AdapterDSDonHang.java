@@ -54,19 +54,19 @@ public class User_AdapterDSDonHang extends RecyclerView.Adapter<User_AdapterDSDo
 
             DonHang donHang=arrayList.get(position);
 
-            if(donHang.getTrangThai().equals("XacNhan")){
+            if(donHang.getTrangThai().toString().equals("XacNhan")){
             holder.txtTrangThai.setText("Xác nhận");
-            holder.btnXacNhan.setVisibility(View.INVISIBLE);
-            holder.btnDelete.setVisibility(View.INVISIBLE);
+            holder.btnXacNhan.setVisibility(View.GONE);
+            holder.btnDelete.setVisibility(View.GONE);
             }
 
-            else if(donHang.getTrangThai().equals("choXacNhan")){
+            if(donHang.getTrangThai().toString().equals("choXacNhan")){
                 holder.txtTrangThai.setText("Chờ xác nhận");
             }
-            else if(donHang.getTrangThai().equals("Huy")){
+             if(donHang.getTrangThai().toString().equals("Huy")){
                 holder.txtTrangThai.setText("Hủy");
-                holder.btnXacNhan.setVisibility(View.INVISIBLE);
-                holder.btnDelete.setVisibility(View.INVISIBLE);
+                holder.btnXacNhan.setVisibility(View.GONE);
+                holder.btnDelete.setVisibility(View.GONE);
             }
 
             holder.txtTong.setText(""+donHang.getTongCong());

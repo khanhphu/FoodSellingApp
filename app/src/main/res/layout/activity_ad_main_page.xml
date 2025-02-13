@@ -420,7 +420,7 @@
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:contentDescription="lich"
-                            android:src="@drawable/ic_signout"
+                            android:src="@drawable/ic_logout"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />

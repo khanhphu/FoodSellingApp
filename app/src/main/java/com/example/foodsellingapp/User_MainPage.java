@@ -28,14 +28,15 @@ import org.w3c.dom.Text;
 public class User_MainPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private ActivityUserMainPageBinding binding;
     private FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
-    String uid=firebaseAuth.getCurrentUser().getUid();
+   // String uid=firebaseAuth.getCurrentUser().getUid();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityUserMainPageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+//tam thoi ko check user -> 2 type: guest, cus( register)
 
-         checkUsers();
+        // checkUsers();
 
        // bottom menu:
         replaceFragment(new User_Home());
@@ -114,7 +115,7 @@ public class User_MainPage extends AppCompatActivity implements NavigationView.O
 
         }
     }
-
+//navigation menu
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id=item.getItemId();
@@ -140,7 +141,19 @@ public class User_MainPage extends AppCompatActivity implements NavigationView.O
            // fix bug:22/6/24
             FirebaseAuth.getInstance().signOut();
             //nhay vao cau lenh if :
-            checkUsers();
+           checkUsers();
+       }
+        else if (id == R.id.it_login) {
+           FirebaseUser fbUser= firebaseAuth.getCurrentUser();
+          if(fbUser== null){
+              startActivity(new Intent(User_MainPage.this, LoginPage.class));
+
+          }
+          else{
+              Toast.makeText(this,"Logged",Toast.LENGTH_SHORT).show();
+          }
+            //nhay vao cau lenh if :
+           checkUsers();
        }
         else if (id == R.id.it_order) {
             try {
@@ -162,6 +175,7 @@ public class User_MainPage extends AppCompatActivity implements NavigationView.O
 
             }
        }
+
         binding.drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodsellingapp.Ad_ChinhSuaMon;
 import com.example.foodsellingapp.Model.MonAn;
+import com.example.foodsellingapp.R;
 import com.example.foodsellingapp.databinding.ListAdminMonBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -59,6 +60,8 @@ public class Ad_AdapterMonAn extends RecyclerView.Adapter<Ad_AdapterMonAn.Holder
         String tenMon=model.getTenMon();
         Integer gia=model.getGia();
         Integer phuThu=model.getPhuThu();
+        Integer sl=model.getSoLuong();
+        String gioiThieu= model.getGioiThieu();
         //duoc se them timestamp de xu ly ngay gio tao moi
 
         //set data for recycler view
@@ -66,11 +69,16 @@ public class Ad_AdapterMonAn extends RecyclerView.Adapter<Ad_AdapterMonAn.Holder
         holder.txtTenMon.setText(tenMon);
         holder.txtGia.setText(gia.toString());
         holder.txtPhuThu.setText(phuThu.toString());
-        holder.txtGioiThieu.setText(binding.txtGioiThieu.getText().toString());
+      //  holder.txtGioiThieu.setText(gioiThieu.toString());
+        holder.txtSL.setText(sl.toString());
         //Xu ly sau:    holder.txtSL.setText(maMon);
         //Get Image:
         String url=model.getUrl();
-        Picasso.get().load(url).into(holder.imgMon);
+        if(sl==0){
+           holder.imgMon.setImageResource(R.drawable.out_of_stock);
+        }
+        else
+        { Picasso.get().load(url).into(holder.imgMon);}
   // edit MonAN
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,9 +90,11 @@ public class Ad_AdapterMonAn extends RecyclerView.Adapter<Ad_AdapterMonAn.Holder
                 ///////////////////////// //neu la so put extra phai nhu nay:
                 String st_gia= String.valueOf(gia);
                 String st_phuThu= String.valueOf(phuThu);
+                String st_sl=String.valueOf(sl);
                 intent.putExtra("gia",st_gia);
                 intent.putExtra("phuThu",st_phuThu);
                 intent.putExtra("url",url);
+                intent.putExtra("soLuong",st_sl);
                 context.startActivity(intent);
             }
         });
@@ -141,6 +151,7 @@ public class Ad_AdapterMonAn extends RecyclerView.Adapter<Ad_AdapterMonAn.Holder
             btnEdit=binding.btnEdit;
             btnDelete=binding.btnDelete;
             txtGioiThieu=binding.txtGioiThieu;
+            txtSL=binding.txtSL;
             //truy van sau
 
         }

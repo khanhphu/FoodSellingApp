@@ -52,12 +52,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
-                        android:src="@drawable/ic_check" />
+                        android:src="@drawable/ic_check"
+                        android:visibility="invisible"
+                        />
 
                     <ImageView
                         android:id="@+id/btnDelete"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:visibility="invisible"
+
                         android:src="@drawable/ic_close" />
                 </LinearLayout>
             </LinearLayout>

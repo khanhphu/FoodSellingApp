@@ -32,10 +32,10 @@ import java.util.HashMap;
 public class Ad_ChinhSuaMon extends AppCompatActivity {
     private ActivityAdChinhSuaMonBinding binding;
     String maMon, tenMon;
-    Integer gia, phuThu;
+    Integer gia, phuThu,sl;
     StorageReference storageReference= FirebaseStorage.getInstance().getReference("MonAn");
     Uri imgUri;
-
+    int number=0;
      static String uploadedImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,7 @@ public class Ad_ChinhSuaMon extends AppCompatActivity {
         binding.edtTenMon.setText(getIntent().getStringExtra("tenMon"));
         binding.edtGia.setText(getIntent().getStringExtra("gia"));
         binding.edtPhuThu.setText(getIntent().getStringExtra("phuThu"));
+        binding.edtSL.setText(getIntent().getStringExtra("soLuong"));
         Picasso.get().load(getIntent().getStringExtra("url")).into(binding.imgMon);
         //handle cancel
         binding.btnCancel.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +74,24 @@ public class Ad_ChinhSuaMon extends AppCompatActivity {
 
             }
         });
+        //btnIncrease and btnDecrease
+        binding.btnIncrease.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int slCon=Integer.parseInt((binding.edtSL.getText().toString()));
+
+                binding.edtSL.setText(String.valueOf(slCon+1));
+
+
+            }
+        });
+        binding.btnDecrease.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int sl_tempt=Integer.parseInt(binding.edtSL.getText().toString());
+                  binding.edtSL.setText(String.valueOf(sl_tempt-1));
+            }
+        });
 
     }
 
@@ -93,19 +112,35 @@ public class Ad_ChinhSuaMon extends AppCompatActivity {
     }
 
     private void checkValidate() {
-        if (binding.edtTenMon.getText().toString().isEmpty()) {
+        String tenMon = binding.edtTenMon.getText().toString().trim();
+        String giaMon = binding.edtGia.getText().toString().trim();
+        String sl=binding.edtSL.getText().toString();
+        // Check if fields are empty
+        if (tenMon.isEmpty()) {
             binding.edtTenMon.setError("Tên món ăn không để trống!");
+            binding.edtTenMon.requestFocus();
             return;
         }
-        if (binding.edtGia.getText().toString().isEmpty()) {
-            binding.edtTenMon.setError("Giá món ăn không để trống!");
-        } else {
-            if(imgUri!=null)
-            {uploadImage(imgUri);}
-           else{ chinhSuaMon(uploadedImage);}
+
+        if (giaMon.isEmpty()) {
+            binding.edtGia.setError("Giá món ăn không để trống!");
+            binding.edtGia.requestFocus();
+            return;
+        }
+        if (sl.isEmpty()) {
+            binding.edtSL.setError("SL món ăn không để trống!");
+            binding.edtSL.requestFocus();
+            return;
         }
 
+        // Proceed with uploading or editing
+        if (imgUri != null) {
+            uploadImage(imgUri);
+        } else {
+            chinhSuaMon(uploadedImage);
+        }
     }
+
     public void uploadImage(Uri uri) {
 
             StorageReference fileref = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
@@ -132,11 +167,13 @@ public class Ad_ChinhSuaMon extends AppCompatActivity {
     private void chinhSuaMon(String uploadedImage) {
         tenMon = binding.edtTenMon.getText().toString().trim();
         gia = Integer.valueOf(binding.edtGia.getText().toString().trim());
+        sl=Integer.valueOf(binding.edtSL.getText().toString().trim());
         if (binding.edtPhuThu.getText().toString().isEmpty()) {
             phuThu =0;
         } else {
             phuThu = Integer.valueOf(binding.edtGia.getText().toString().trim());
         }
+
         if(uploadedImage==null){
             uploadedImage=getIntent().getStringExtra("url");
         }
@@ -145,6 +182,8 @@ public class Ad_ChinhSuaMon extends AppCompatActivity {
         hashMap.put("gia", gia);
         hashMap.put("phuThu", phuThu);
         hashMap.put("url",uploadedImage);
+        //tuy chinh so luong
+        hashMap.put("soLuong",sl);
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         DocumentReference docRef = firestore.collection("MonAn").document(maMon);
         docRef.update(hashMap)

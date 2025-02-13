@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
     android:elevation="10dp"
-    android:layout_margin="20dp"
+    app:cardElevation="6dp"
+    android:layout_margin="10dp"
     android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="wrap_content"
@@ -49,7 +50,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
-                        android:src="@drawable/icon_ad_edit" />
+                        android:src="@drawable/ic_update" />
 
                     <ImageView
                         android:id="@+id/btnDelete"
@@ -136,6 +137,22 @@
 
                 <TextView
                     android:id="@+id/txtGioiThieu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="dsgsdfg"
+                    android:textColor="@color/black" />
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="SL:"
+                    android:textColor="@color/camDam"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtSL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="8dp"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/camDam"
+    android:background="@color/white"
     tools:context=".Ad_DSachMon">
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipetorefresh"
@@ -16,18 +16,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-<EditText
-        android:layout_margin="20dp"
+
+    <EditText
         android:id="@+id/secSearch"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
-    android:layout_width="280dp"
+        android:layout_margin="20dp"
         android:background="@color/vangNhatHon"
-    android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:paddingLeft="10dp"
-        android:hint="Search"
         android:drawableLeft="@drawable/ic_serach"
-        android:drawablePadding="10dp"/>
+        android:drawablePadding="10dp"
+        android:hint="Search"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
