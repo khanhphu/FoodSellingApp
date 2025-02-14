@@ -36,16 +36,24 @@ public class User_AdpaterMonAn extends RecyclerView.Adapter<User_AdpaterMonAn.Ho
 
     @Override
     public void onBindViewHolder(@NonNull HolderUserMon holder, int position) {
-     MonAn monAn=arrMon.get(position);
+        MonAn monAn = arrMon.get(position);
         //ma mon ko show ra nhung van khai bao de intent qua detail mon hoac cac chuc nang khac
-     String maMon=monAn.getMaMon();
-     String tenMon=monAn.getTenMon();
-     Integer gia=monAn.getGia();
-     Integer phuThu=monAn.getPhuThu();
-     Integer giaBan=gia+phuThu;
-     String url=monAn.getUrl();
-     //get hinh
-        Picasso.get().load(url).into(holder.menuHinhMon);
+        String maMon = monAn.getMaMon();
+        String tenMon = monAn.getTenMon();
+        Integer gia = monAn.getGia();
+        Integer phuThu = monAn.getPhuThu();
+        //update them sl:
+        Integer sl = monAn.getSoLuong();
+        Integer giaBan = gia + phuThu;
+        String url = monAn.getUrl();
+        //get hinh
+        if(sl==0){
+            holder.menuHinhMon.setImageResource(R.drawable.out_of_stock);
+        }
+        else
+        { Picasso.get().load(url).into(holder.menuHinhMon);}
+
+
         //get data
         holder.menuTenMon.setText(tenMon);
         //gui tu ma mon tu ma mon truy van cac thong tin mon
@@ -56,16 +64,19 @@ public class User_AdpaterMonAn extends RecyclerView.Adapter<User_AdpaterMonAn.Ho
 
 
         // nhan vao se gui intent den chi tiet
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(context, User_ChiTietMon.class);
-                intent.putExtra("object",arrMon.get(position));
-           //     intent.putExtra("maMon",maMon);
-                context.startActivity(intent);
+       if(sl>0) {
+           holder.itemView.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                   Intent intent = new Intent(context, User_ChiTietMon.class);
+                   intent.putExtra("object", arrMon.get(position));
+                   //     intent.putExtra("maMon",maMon);
+                   context.startActivity(intent);
 
-            }
-        });
+               }
+           });
+
+       }
 
     }
 
