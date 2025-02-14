@@ -54,7 +54,8 @@ dependencies {
     implementation ("com.squareup.picasso:picasso:2.8")
     //GSON
     implementation ("com.google.code.gson:gson:2.8.7")
-
+    //image cycle
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
 
 
 

@@ -59,6 +59,12 @@ private FirebaseAuth firebaseAuth;
 
             }
         });
+        binding.secKhachHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Ad_MainPage.this, Ad_DSKhachHang.class));
+            }
+        });
 
 
     }
