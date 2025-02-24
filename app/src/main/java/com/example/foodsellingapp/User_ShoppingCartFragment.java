@@ -22,10 +22,12 @@ import com.example.foodsellingapp.Adapter.User_AdapterGioHang;
 import com.example.foodsellingapp.Model.MonAn;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
@@ -47,6 +49,7 @@ User_AdapterGioHang userAdapterGioHang;
 FirebaseFirestore firestore=FirebaseFirestore.getInstance();
 FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
 String uid;
+Long slDB;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -72,7 +75,8 @@ if(checkUser()==true) {
             if (arrayList.size() == 0) {
                 Toast.makeText(getActivity(), "Empty!", Toast.LENGTH_SHORT).show();
 
-            } else {
+            }
+            else {
                 setUpOrder();
                 //them don hang thi phai xoa khoi gio hang
                 managementCart.clearAll();
@@ -87,6 +91,9 @@ if(checkUser()==true) {
 }
         return view;
     }
+
+
+
     public boolean checkUser(){
         if(firebaseAuth.getUid()==null)
             return false;
@@ -104,6 +111,7 @@ if(checkUser()==true) {
         createOrder();
         for(int i=0;i<arrayList.size();i++){
             createDetailOrder(i);
+            getSLInDB(i); //lay so luong trong db
         }
     }
 String maDH;
@@ -123,7 +131,7 @@ String maDH;
         // Replace with your timestamp
         Calendar calendar = Calendar.getInstance(Locale.ENGLISH);
         calendar.setTimeInMillis(timestamp);
-        String ngayTao= (String) DateFormat.format("dd/MM/yyyy",calendar);
+        String ngayTao= (String) DateFormat.format("dd-MM-yyyy HH:mm:ss",calendar);
         hashMap.put("ngayTao", ngayTao);
         CollectionReference ref = firestore.collection("DonHang");
 
@@ -141,7 +149,27 @@ String maDH;
                     }
                 });
     }
+   private void getSLInDB(int i){
 
+       DocumentReference dof=firestore.collection("MonAn").document(arrayList.get(i).getMaMon());
+       //get soLuong from document "MonAn" in firebasestore
+       dof.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+           @Override
+           public void onSuccess(DocumentSnapshot documentSnapshot) {
+              slDB=documentSnapshot.getLong("soLuong");
+             minusQuantityInDB(slDB);
+           }
+       });
+
+   }
+    private void minusQuantityInDB(Long slDB) {
+      //update:
+        for(int i=0;i<arrayList.size();i++) {
+            DocumentReference dof = firestore.collection("MonAn").document(arrayList.get(i).getMaMon());
+            Long update_SL = slDB - arrayList.get(i).getNumberinCart();
+            dof.update("soLuong", update_SL);
+        }
+    }
 
     private void initCart() {
         if(managementCart.getListCart().isEmpty()){

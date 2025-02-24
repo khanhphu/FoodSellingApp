@@ -1,5 +1,7 @@
 package com.example.foodsellingapp;
 
+import static androidx.core.content.ContentProviderCompat.requireContext;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -98,16 +100,25 @@ public class User_ChiTietMon extends AppCompatActivity {
         binding.btnTang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                num=num+1;
-                binding.detailSLMua.setText(String.valueOf(num));
-                binding.total.setText(String.valueOf(num*giaTien));
+              if(object.getSoLuong()<num+1){
+                  binding.btnTang.setVisibility(View.INVISIBLE);
+              }
+              else{
+                  num=num+1;
+                  binding.detailSLMua.setText(String.valueOf(num));
+                  binding.total.setText(String.valueOf(num*giaTien));
+
+              }
+
             }
         });
         //giam
         binding.btnGiam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             if(  num>1){
+                binding.btnTang.setVisibility(View.VISIBLE); //case: click  if stock > number want to add
+
+                if(num>1){
                  num=num-1;
                  binding.detailSLMua.setText(String.valueOf(num));
                  binding.total.setText(String.valueOf(num*giaTien));
@@ -147,7 +158,6 @@ public class User_ChiTietMon extends AppCompatActivity {
                                       }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-
                     }
                 });
 

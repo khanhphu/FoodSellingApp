@@ -44,11 +44,18 @@ public class TinyDB {
 ///
     ///
 
-FirebaseAuth firebaseAuth   =FirebaseAuth.getInstance();
-FirebaseUser fbU=firebaseAuth.getCurrentUser();
-    String uid=fbU.getUid();
-
-
+static FirebaseAuth firebaseAuth  =FirebaseAuth.getInstance();
+static FirebaseUser fbU=firebaseAuth.getCurrentUser();
+    static String  uid="0";
+    private static String checkUid(){
+        if(fbU!=null){
+            uid=fbU.getUid();
+        }
+        else{
+            uid=String.valueOf(System.currentTimeMillis());
+      }
+        return uid;
+    }
         private SharedPreferences preferences;
         private String DEFAULT_APP_IMAGEDATA_DIRECTORY;
         private String lastImagePath = "";
@@ -481,7 +488,7 @@ FirebaseUser fbU=firebaseAuth.getCurrentUser();
         }
 
 
-    private static final String KEY_ = "uid";
+    private static final String KEY_ = checkUid();
         /**
          * Put ObJect any type into SharedPrefrences with 'key' and save
          * @param key SharedPreferences key
