@@ -7,17 +7,20 @@ private String ngayTao;
 private int tongCong;
 private int tongSL;
 private String trangThai;
+//ngay, gio xac nhan don (admin)
+    private  String ngayXacNhan;
 
     public DonHang() {
     }
 
-    public DonHang(String maDH, String maKH, String ngayTao, int tongCong, int tongSL, String trangThai) {
+    public DonHang(String maDH, String maKH, String ngayTao, int tongCong, int tongSL, String trangThai, String ngayXacNhan) {
         this.maDH = maDH;
         this.maKH = maKH;
         this.ngayTao = ngayTao;
         this.tongCong = tongCong;
         this.tongSL = tongSL;
         this.trangThai = trangThai;
+        this.ngayXacNhan=ngayXacNhan;
     }
 
     public String getMaDH() {
@@ -66,5 +69,13 @@ private String trangThai;
 
     public void setTrangThai(String trangThai) {
         this.trangThai = trangThai;
+    }
+
+    public String getNgayXacNhan() {
+        return ngayXacNhan;
+    }
+
+    public void setNgayXacNhan(String ngayXacNhan) {
+        this.ngayXacNhan = ngayXacNhan;
     }
 }

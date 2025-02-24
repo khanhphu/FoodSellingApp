@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="statusorder">
+        <item>All</item>
+        <item>Xác nhận</item>
+        <item>Chờ xác nhận</item>
+        <item>Hủy</item>
+    </string-array>
+</resources>
