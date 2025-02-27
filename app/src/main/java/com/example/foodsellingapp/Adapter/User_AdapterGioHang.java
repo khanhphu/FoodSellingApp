@@ -42,18 +42,18 @@ public class User_AdapterGioHang extends RecyclerView.Adapter<User_AdapterGioHan
     @Override
     public HolderGioHang onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        return new HolderGioHang(LayoutInflater.from(parent.getContext()).inflate(R.layout.list_user_shoppingcart,parent,false));
+        return new HolderGioHang(LayoutInflater.from(parent.getContext()).inflate(R.layout.list_user_shoppingcart, parent, false));
 
     }
 
     @Override
     public void onBindViewHolder(@NonNull HolderGioHang holder, int position) {
-        MonAn monAn=arrMonAnTrongGioHang.get(position);
-         holder.tenMon.setText(monAn.getTenMon());
-         Integer giaBan=monAn.getGia()+monAn.getPhuThu();
-         holder.giaMon.setText("$"+giaBan);
-         holder.sl.setText("x"+ String.valueOf(monAn.getNumberinCart()));
-         holder.slDat.setText(String.valueOf(monAn.getNumberinCart()));
+        MonAn monAn = arrMonAnTrongGioHang.get(position);
+        holder.tenMon.setText(monAn.getTenMon());
+        Integer giaBan = monAn.getGia() + monAn.getPhuThu();
+        holder.giaMon.setText("$" + giaBan);
+        holder.sl.setText("x" + String.valueOf(monAn.getNumberinCart()));
+        holder.slDat.setText(String.valueOf(monAn.getNumberinCart()));
         Picasso.get().load(arrMonAnTrongGioHang.get(position).getUrl()).into(holder.imgMon);
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +62,7 @@ public class User_AdapterGioHang extends RecyclerView.Adapter<User_AdapterGioHan
                     @Override
                     public void change() {
                         notifyDataSetChanged();
-                     changeNumberItemsListerner.change();
+                        changeNumberItemsListerner.change();
                     }
                 });
             }
@@ -108,18 +108,18 @@ public class User_AdapterGioHang extends RecyclerView.Adapter<User_AdapterGioHan
 
     class HolderGioHang extends RecyclerView.ViewHolder {
         ImageView imgMon, btnDelete;
-        TextView  tenMon,giaMon,sl, btnGiam, btnTang,slDat;
+        TextView tenMon, giaMon, sl, btnGiam, btnTang, slDat;
 
         public HolderGioHang(@NonNull View itemView) {
             super(itemView);
-            imgMon=itemView.findViewById(R.id.imgMon);
-            btnDelete=itemView.findViewById(R.id.btnDelete);
-            tenMon=itemView.findViewById(R.id.tenMon);
-            giaMon=itemView.findViewById(R.id.giaMon);
-            sl=itemView.findViewById(R.id.sl);
-            btnGiam=itemView.findViewById(R.id.btnGiam);
-            btnTang=itemView.findViewById(R.id.btnTang);
-            slDat=itemView.findViewById(R.id.slDat);
+            imgMon = itemView.findViewById(R.id.imgMon);
+            btnDelete = itemView.findViewById(R.id.btnDelete);
+            tenMon = itemView.findViewById(R.id.tenMon);
+            giaMon = itemView.findViewById(R.id.giaMon);
+            sl = itemView.findViewById(R.id.sl);
+            btnGiam = itemView.findViewById(R.id.btnGiam);
+            btnTang = itemView.findViewById(R.id.btnTang);
+            slDat = itemView.findViewById(R.id.slDat);
 
         }
     }

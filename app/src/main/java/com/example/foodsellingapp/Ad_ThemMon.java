@@ -172,15 +172,15 @@ public class Ad_ThemMon extends AppCompatActivity {
         return true;
     }
 
-private void showToastMessage(String message){
-        Toast.makeText(this,message,Toast.LENGTH_LONG).show();
-}
+    private void showToastMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
 
     private void loadMon4FB(String uploadedImage) {
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-      //  maMon = binding.txtMaMon.getText().toString().trim();
-        maMon ="M"+ System.currentTimeMillis();
+        //  maMon = binding.txtMaMon.getText().toString().trim();
+        maMon = "M" + System.currentTimeMillis();
         tenMon = binding.txtTenMon.getText().toString().trim();
         gia = Integer.parseInt(binding.txtGia.getText().toString().trim());
         if (binding.txtPhuThu.getText().toString().equals("") || Integer.parseInt(binding.txtPhuThu.getText().toString()) <= 0) {
@@ -205,7 +205,7 @@ private void showToastMessage(String message){
         hashMap.put("tenMon", tenMon);
         hashMap.put("gia", gia);
         hashMap.put("phuThu", phuThu);
-        hashMap.put("soLuong",sl);
+        hashMap.put("soLuong", sl);
         hashMap.put("gioiThieu", binding.txtGioiThieu.getText().toString());
         //image
         hashMap.put("url", uploadedImage);
@@ -227,6 +227,6 @@ private void showToastMessage(String message){
     }
 
 
-    }
+}
 
 
