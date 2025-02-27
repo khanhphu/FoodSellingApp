@@ -133,24 +133,48 @@ public class Ad_ThemMon extends AppCompatActivity {
 
 
     private void checkMon() {
-        FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-        if (binding.txtTenMon.getText().toString().equals("")) {
-            Toast.makeText(this, "Tên món không để trống!", Toast.LENGTH_SHORT).show();
-
-        } else if (binding.txtGia.getText().toString().equals("")) {
-            Toast.makeText(this, "Giá không để trống!", Toast.LENGTH_SHORT).show();
-        } else if (Integer.parseInt(binding.txtGia.getText().toString()) <= 0) {
-            Toast.makeText(this, "Gia khong am", Toast.LENGTH_SHORT).show();
-
-        } else if (imgUri == null) {
-            Toast.makeText(this, "Chua co hinh mon an", Toast.LENGTH_SHORT).show();
-
-        } else {
-            uploadImage(imgUri);
-
-        }
+        if (isValidGia() && isValidTenMon() && isValidImage()) uploadImage(imgUri);
     }
 
+    private boolean isValidGia() {
+        String txtGia = binding.txtGia.getText().toString();
+        if (txtGia.isEmpty()) {
+            showToastMessage("Giá không được để trống!");
+            return false;
+        }
+        try {
+            int gia = Integer.parseInt(txtGia);
+            if (gia <= 0) {
+                showToastMessage("Giá phải lớn hơn 0!");
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            showToastMessage("Giá phải là số hợp lệ!"); //textfield has required input format is number
+        }
+        return true;
+
+    }
+
+    private boolean isValidTenMon() {
+        String txtTenMon = binding.txtTenMon.getText().toString();
+        if (txtTenMon.isEmpty()) {
+            showToastMessage("Tên món không được để trống!");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isValidImage() {
+        if (imgUri == null) {
+            showToastMessage("Vui lòng chọn hình món ăn!");
+            return false;
+        }
+        return true;
+    }
+
+private void showToastMessage(String message){
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show();
+}
 
     private void loadMon4FB(String uploadedImage) {
 
@@ -170,7 +194,7 @@ public class Ad_ThemMon extends AppCompatActivity {
             sl = 0;
 
         } else {
-            sl = Integer.parseInt(binding.txtPhuThu.getText().toString().trim());
+            sl = Integer.parseInt(binding.txtSL.getText().toString().trim());
         }
 
         CollectionReference ref = firestore.collection("MonAn");

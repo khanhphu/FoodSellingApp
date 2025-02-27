@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -69,9 +70,9 @@ public class Ad_AdapterMonAn extends RecyclerView.Adapter<Ad_AdapterMonAn.Holder
         holder.txtTenMon.setText(tenMon);
         holder.txtGia.setText(gia.toString());
         holder.txtPhuThu.setText(phuThu.toString());
-      //  holder.txtGioiThieu.setText(gioiThieu.toString());
+        holder.txtGioiThieu.setTextSize(4);
+        holder.txtGioiThieu.setText(gioiThieu.toString());
         holder.txtSL.setText(sl.toString());
-        //Xu ly sau:    holder.txtSL.setText(maMon);
         //Get Image:
         String url=model.getUrl();
         if(sl==0){
@@ -112,7 +113,7 @@ public class Ad_AdapterMonAn extends RecyclerView.Adapter<Ad_AdapterMonAn.Holder
                             @Override
                             public void onSuccess(Void aVoid) {
                                // Log.d("CKTAG", "Mon an da xoa !");
-                                Toast.makeText(context,"Xóa mon an thành công!",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context,"Xóa món ăn thành công!",Toast.LENGTH_SHORT).show();
 
                             }
                         })
@@ -123,7 +124,6 @@ public class Ad_AdapterMonAn extends RecyclerView.Adapter<Ad_AdapterMonAn.Holder
                                 Toast.makeText(context,"Lỗi khi xóa monan !",Toast.LENGTH_SHORT).show();
                             }
                         });
-
             }
         });
     }
