@@ -1,186 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/trangNga"
+    android:background="?android:attr/colorBackground"
+    android:fillViewport="true"
     tools:context=".Ad_ChinhSuaMon">
-    <LinearLayout
-        android:id="@+id/secAddCK"
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center">
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="#FFFFFF">
 
-        <androidx.cardview.widget.CardView
-
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="30dp"
-            android:layout_gravity="center"
-            app:cardCornerRadius="10dp">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <ScrollView
+            <!-- Back Button -->
+            <ImageView
+                android:id="@+id/btnback"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_back"
+                android:contentDescription="Back"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                 />
+
+            <!-- Logo -->
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/logofood_ic"
+                android:contentDescription="Food Logo" />
+
+            <!-- Title -->
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:orientation="vertical">
-                <LinearLayout
+                android:text="Chỉnh sửa món ăn"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/camDam"
+                android:letterSpacing="0.02"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Food Image -->
+            <ImageView
+                android:id="@+id/imgMon"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_addimg"
+                android:scaleType="centerCrop"
+                android:contentDescription="Food Image"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Input Fields -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginBottom="16dp"
+                app:hintTextColor="#757575"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <EditText
+                    android:id="@+id/edtMaMon"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <ImageView
-                            android:id="@+id/btnback"
-                            android:layout_marginLeft="5dp"
-                            android:background="@color/white"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:src="@drawable/ic_back"/>
-                    </LinearLayout>
-                    <ImageView
+                    android:layout_height="wrap_content"
+                    android:hint="Mã món"
+                    android:enabled="false"
+                    android:textSize="16sp"
+                    android:textColor="#424242"
+                    android:padding="12dp"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <EditText
+                    android:id="@+id/edtTenMon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tên món"
+                    android:textSize="16sp"
+                    android:textColor="#424242"
+                    android:padding="12dp"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <EditText
+                    android:id="@+id/edtGia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Giá"
+                    android:inputType="number"
+                    android:textSize="16sp"
+                    android:textColor="#424242"
+                    android:padding="12dp"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <EditText
+                    android:id="@+id/edtPhuThu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phụ thu"
+                    android:inputType="number"
+                    android:textSize="16sp"
+                    android:textColor="#424242"
+                    android:padding="12dp"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Quantity Controls -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginBottom="16dp">
+
+                <Button
+                    android:id="@+id/btnDecrease"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:text="-"
+                    android:textSize="20sp"
+                    android:textColor="#FFFFFF"
+                    app:backgroundTint="@color/camDam"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <EditText
+                        android:id="@+id/edtSL"
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:layout_marginBottom="3dp"
-                        android:src="@drawable/logofood_ic"/>
-                    <TextView
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:text="Chỉnh sửa món ăn"
-                        android:textAllCaps="true"
-                        android:paddingBottom="10dp"/>
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_addimg"
-                        android:id="@+id/imgMon"/>
-                    <EditText
-                        android:id="@+id/edtMaMon"
-                        android:layout_width="280dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/khungtext"
-                        android:hint="Nhập mã món"
-                        android:paddingLeft="10dp"
-                        android:layout_margin="8dp"
-                        android:enabled="false"
-                        android:maxLines="1"/>
-                    <EditText
-                        android:id="@+id/edtTenMon"
-                        android:layout_width="280dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/khungtext"
-                        android:hint="Nhập tên món"
-                        android:paddingLeft="10dp"
-                        android:layout_margin="8dp"
-                        android:maxLines="1"/>
-                    <EditText
-                        android:id="@+id/edtGia"
-                        android:layout_width="280dp"
-                        android:layout_height="50dp"
-                        android:maxLength="200"
-                        android:paddingLeft="10dp"
-                        android:layout_margin="8dp"
-                        android:background="@drawable/khungtext"
-                        android:hint="Giá"
+                        android:hint="Số lượng"
                         android:inputType="number"
-                        android:isScrollContainer="true"
-                        />
-                    <EditText
-                        android:id="@+id/edtPhuThu"
-                        android:layout_width="280dp"
-                        android:layout_height="50dp"
-                        android:maxLength="200"
-                        android:paddingLeft="10dp"
-                        android:layout_margin="8dp"
-                        android:background="@drawable/khungtext"
-                        android:hint="Phụ thu"
-                        android:inputType="number"
-                        android:isScrollContainer="true"
-                        />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="#424242"
                         android:gravity="center"
-                        android:orientation="horizontal">
+                        android:padding="12dp"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                        <Button
-                            android:id="@+id/btnDecrease"
-                            android:layout_width="70dp"
-                            android:layout_height="wrap_content"
-                            android:text="-"
-                            android:backgroundTint="@color/xam"
-                            android:textColor="@color/black"
-                            android:layout_marginStart="10dp"
-                            android:textSize="24sp" />
+                <Button
+                    android:id="@+id/btnIncrease"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:text="+"
+                    android:textSize="20sp"
+                    android:textColor="#FFFFFF"
+                    app:backgroundTint="@color/camDam"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+            </LinearLayout>
 
-                        <EditText
-                            android:id="@+id/edtSL"
-                            android:layout_width="80dp"
-                            android:layout_height="50dp"
-                            android:layout_margin="8dp"
-                            android:background="@drawable/khungtext"
-                            android:hint="SL"
-                            android:gravity="center"
-                            android:inputType="number"
-                            android:isScrollContainer="true"
-                            android:paddingLeft="10dp"
-                            android:textSize="24sp" />
+            <!-- Introduction Field -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-                        <Button
-                            android:backgroundTint="@color/xam"
-                            android:id="@+id/btnIncrease"
-                            android:layout_width="70dp"
-                            android:layout_height="wrap_content"
-                            android:text="+"
-                            android:textColor="@color/black"
-                            android:textSize="24sp"
-                            />
-                    </LinearLayout>
+                <EditText
+                    android:id="@+id/edtGioiThieu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Giới thiệu"
+                    android:textSize="16sp"
+                    android:textColor="#424242"
+                    android:padding="12dp"
+                    android:maxLines="3" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                    <EditText
-                        android:id="@+id/edtGioiThieu"
-                        android:layout_width="280dp"
-                        android:layout_height="50dp"
-                        android:maxLength="200"
-                        android:paddingLeft="10dp"
-                        android:layout_margin="8dp"
-                        android:background="@drawable/khungtext"
-                        android:hint="Giới thiệu"
-                        android:isScrollContainer="true"
-                        />
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:orientation="horizontal">
-                        <Button
-                            android:id="@+id/btnSaveMon"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Save"/>
-                        <Button
-                            android:id="@+id/btnCancel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Cancel"/>
-                    </LinearLayout>
-                </LinearLayout>
+            <!-- Action Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:layout_marginTop="16dp">
 
-            </ScrollView>
-        </androidx.cardview.widget.CardView>
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hủy"
+                    android:textColor="#757575"
+                    android:layout_marginEnd="8dp"
+                    style="@style/Widget.MaterialComponents.Button.TextButton" />
 
+                <Button
+                    android:id="@+id/btnSaveMon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lưu"
+                    android:textColor="#FFFFFF"
+                    app:backgroundTint="#FF5722">
 
-    </LinearLayout>
-</ScrollView>
+                </Button>  <!-- Replace with @color/xam if defined -->
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.core.widget.NestedScrollView>

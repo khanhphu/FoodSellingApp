@@ -5,12 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?android:attr/colorBackground"
     tools:context=".User_DSDonHang">
-<include layout="@layout/custom_toolbar"/>
-    <androidx.recyclerview.widget.RecyclerView
+
+    <!-- Toolbar -->
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/custom_toolbar"
         android:layout_width="match_parent"
-        android:id="@+id/user_listDH"
-        tools:listitem="@layout/list_user_dsachdonhang"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:layout_height="wrap_content"/>
+        android:layout_height="?android:attr/actionBarSize" />
+
+    <!-- RecyclerView Container -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/user_listDH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F5F5F5"
+            android:clipToPadding="false"
+            android:padding="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/list_user_dsachdonhang" />
+    </androidx.core.widget.NestedScrollView>
+
+
 </LinearLayout>
