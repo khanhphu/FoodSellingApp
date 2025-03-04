@@ -15,11 +15,7 @@
         <activity
             android:name=".Ad_ThongKe"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Ad_DSKhachHang"
@@ -27,9 +23,7 @@
         <activity
             android:name=".ForgotPassActivity"
             android:exported="false" />
-        <activity
-            android:name=".TestActivity"
-            android:exported="false" />
+
         <activity
             android:name=".User_DSDonHang"
             android:exported="false" />
@@ -68,7 +62,13 @@
         <activity
             android:name=".User_MainPage"
             android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Ad_MainPage"
             android:exported="false" />

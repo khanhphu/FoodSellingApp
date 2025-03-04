@@ -1,0 +1,17 @@
+<resources>
+    <!-- Style for active (selected) BottomNavigationView items -->
+    <style name="BottomNavTextActive">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/nav_item_colors</item>
+    </style>
+
+    <!-- Style for inactive (unselected) BottomNavigationView items -->
+    <style name="BottomNavTextInactive">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/nav_item_colors</item>
+    </style>
+</resources>

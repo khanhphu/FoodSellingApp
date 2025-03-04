@@ -7,37 +7,64 @@
     android:orientation="vertical"
     android:background="@color/white"
     tools:context=".Ad_DSachMon">
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipetorefresh"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/camDam"
+        android:elevation="4dp"
+        app:title="Danh Sách Món"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/ic_back" />
 
-    <EditText
-        android:id="@+id/secSearch"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:background="@color/vangNhatHon"
-        android:drawableLeft="@drawable/ic_serach"
-        android:drawablePadding="10dp"
-        android:hint="Search"
-        android:paddingLeft="10dp"
-        android:textColor="@color/black" />
+    <!-- SwipeRefreshLayout -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipetorefresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/listAd_Mon"
-            tools:listitem="@layout/list_admin_mon"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:layout_margin="20dp"/>
-</LinearLayout>
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp">
 
-    </LinearLayout>
+            <!-- Search Bar -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="12dp"
+                app:cardBackgroundColor="@color/vangNhatHon">
+
+                <EditText
+                    android:id="@+id/secSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
+                    android:drawableStart="@drawable/ic_serach"
+                    android:drawablePadding="12dp"
+                    android:hint="Search"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="#757575"
+                    android:textSize="16sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listAd_Mon"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/list_admin_mon" />
+        </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</LinearLayout>
