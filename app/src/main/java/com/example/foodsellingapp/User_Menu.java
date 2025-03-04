@@ -41,15 +41,15 @@ FirebaseFirestore firestore= FirebaseFirestore.getInstance();
         super.onCreate(savedInstanceState);
         binding=ActivityUserMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        btnBack=findViewById(R.id.btnbacktoolbar);
+//        btnBack=findViewById(R.id.btnbacktoolbar);
         secSearch=findViewById(R.id.secSearch);
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+//        btnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onBackPressed();
+//            }
+//        });
         loadMon();
         secSearch.addTextChangedListener(new TextWatcher() {
             @Override
@@ -94,8 +94,6 @@ FirebaseFirestore firestore= FirebaseFirestore.getInstance();
                         userAdpaterMonAn = new User_AdpaterMonAn(User_Menu.this,arrMon);
                         //set adapter for recycler view
                         binding.menu4User.setAdapter(userAdpaterMonAn);
-                        final GridLayoutManager layoutManager = new GridLayoutManager(User_Menu.this,3,GridLayoutManager.VERTICAL,false);
-                        binding.menu4User.setLayoutManager(layoutManager);
                         userAdpaterMonAn.notifyDataSetChanged();
 
                     }

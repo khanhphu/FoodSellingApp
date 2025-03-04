@@ -6,8 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,8 +69,8 @@ public class Ad_AdapterMonAn extends RecyclerView.Adapter<Ad_AdapterMonAn.Holder
         holder.txtTenMon.setText(tenMon);
         holder.txtGia.setText(gia.toString());
         holder.txtPhuThu.setText(phuThu.toString());
-        holder.txtGioiThieu.setTextSize(4);
-        holder.txtGioiThieu.setText(gioiThieu.toString());
+//        holder.txtGioiThieu.setTextSize(4);
+//        holder.txtGioiThieu.setText(gioiThieu.toString());
         holder.txtSL.setText(sl.toString());
         //Get Image:
         String url=model.getUrl();
