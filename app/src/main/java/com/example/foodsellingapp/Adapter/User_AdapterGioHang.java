@@ -119,7 +119,7 @@ public class User_AdapterGioHang extends RecyclerView.Adapter<User_AdapterGioHan
             sl=itemView.findViewById(R.id.sl);
             btnGiam=itemView.findViewById(R.id.btnGiam);
             btnTang=itemView.findViewById(R.id.btnTang);
-            slDat=itemView.findViewById(R.id.slDat);
+            slDat=itemView.findViewById(R.id.sl);
 
         }
     }

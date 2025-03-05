@@ -1,6 +1,5 @@
 package com.example.foodsellingapp;
 
-import static androidx.core.content.ContentProviderCompat.requireContext;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,14 +8,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.badge.BadgeDrawable;
 import com.example.foodsellingapp.Model.MonAn;
 import com.example.foodsellingapp.databinding.ActivityUserChiTietMonBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.play.core.integrity.p;
+
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
@@ -36,14 +39,14 @@ public class User_ChiTietMon extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityUserChiTietMonBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        btnBack=findViewById(R.id.btnbacktoolbar);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-        binding.btnOther.setOnClickListener(new View.OnClickListener() {
+     //   btnBack=findViewById(R.id.btnbacktoolbar);
+//        binding.btnback.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onBackPressed();
+//            }
+//        });
+        binding.btnMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent( User_ChiTietMon.this,User_Menu.class));
@@ -53,6 +56,7 @@ public class User_ChiTietMon extends AppCompatActivity {
     setVariable();
 //    getDatafromIntent();
 //        Toast.makeText(User_ChiTietMon.this, this.giaBan.toString(), Toast.LENGTH_SHORT).show();
+
 
    }
 
@@ -93,7 +97,7 @@ public class User_ChiTietMon extends AppCompatActivity {
         Picasso.get().load(object.getUrl()).into(binding.detailHinhMon);
         binding.detailTenMon.setText(object.getTenMon());
         Integer giaTien=object.getGia()+object.getPhuThu();
-        binding.detailGia.setText(String.valueOf(giaTien));
+      //  binding.detailGia.setText(String.valueOf(giaTien));
         binding.total.setText(String.valueOf(num*giaTien));
         binding.detailGioiThieu.setText(object.getGioiThieu());
         //them sl
@@ -127,16 +131,31 @@ public class User_ChiTietMon extends AppCompatActivity {
             }
         });
         //add to cart
-        binding.btnaddCart.setOnClickListener(new View.OnClickListener() {
+        Animation translateRight= AnimationUtils.loadAnimation(this,R.anim.translate_right);
+        if (translateRight == null) {
+            Log.e("AnimationDebug", "Failed to load translate_right animation");
+        } else {
+            Log.d("AnimationDebug", "translate_right animation loaded successfully");
+        }
+        binding.btnaddtoCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("AnimationDebug", "Button clicked");
+                binding.arrows.animate().translationXBy(20f).setDuration(300).withEndAction(() ->
+                        binding.arrows.postDelayed(() -> {
+                            binding.arrows.animate().translationXBy(-20f).setDuration(300).start();
+                            binding.arrows.setTextColor(getColor(R.color.cam));
+                        }, 500)).start();
                 object.setNumberinCart(num);
                 managementCart.insertFood(object);
 
             }
         });
-        }
-        String tenMon;
+        binding.arrows.setTextColor(getColor(R.color.xam));
+
+    }
+
+    String tenMon;
     Long giaBan;
     private void getDatafromIntent() {
         Long gia,phuThu;
@@ -149,8 +168,16 @@ public class User_ChiTietMon extends AppCompatActivity {
                         tenMon=documentSnapshot.getString("tenMon");
                          Long gia = documentSnapshot.getLong("gia");
                          Long phuThu = documentSnapshot.getLong("phuThu");
+                         String gioiThieu=documentSnapshot.getString("gioiThieu");
+                         if(gioiThieu.isEmpty()){
+                             gioiThieu="...";
+                             binding.detailGioiThieu.setText(gioiThieu);
+                         }
+                         else{
+                             binding.detailGioiThieu.setText(gioiThieu);
+                         }
                                  giaBan=gia+phuThu;
-                        binding.detailGia.setText(String.valueOf(gia.intValue()));
+                    //    binding.detailGia.setText(String.valueOf(gia.intValue()));
 
 
 
@@ -161,10 +188,7 @@ public class User_ChiTietMon extends AppCompatActivity {
                     }
                 });
 
-        //get imagePicasso.get().load(monAn.getUrl()).into(binding.detailHinhMon);
-//        binding.detailTenMon.setText(monAn.getTenMon());
-//        Integer giaBan=monAn.getGia()+monAn.getPhuThu();
-//        binding.detailGia.setText(giaBan.toString());
+
     }
 
 

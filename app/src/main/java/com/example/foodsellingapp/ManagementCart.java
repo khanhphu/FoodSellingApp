@@ -55,7 +55,7 @@ public class ManagementCart {
 //        tinyDB.putListObject("CartList",listpop);
         checkUid();
        tinyDB.putListObject(uid,listpop);
-        Toast.makeText(context, "Added to your Cart", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, "Added to your Cart", Toast.LENGTH_SHORT).show();
     }
 
     public ArrayList<MonAn> getListCart() {
