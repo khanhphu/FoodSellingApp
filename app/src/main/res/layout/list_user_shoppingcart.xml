@@ -1,131 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="10dp"
-    android:elevation="30dp"
-    tools:ignore="MissingDefaultResource">
-<LinearLayout
-    android:weightSum="8"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <ImageView
+    android:padding="10dp">
 
-        android:layout_gravity="center"
-        android:id="@+id/imgMon"
-        android:layout_width="100dp"
-        android:layout_height="match_parent"
-        android:src="@drawable/imgmon1"/>
-    <LinearLayout
-        android:layout_marginLeft="2dp"
-        android:layout_width="200dp"
+    <!-- Item Card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/tenMon"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:text="TenMon"
-            android:textColor="@color/camDam"
-            android:textSize="15sp" />
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/giaMon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="GiaMon"
-                android:textSize="15sp"
-                android:textColor="@color/cam"/>
+            android:orientation="horizontal"
+            android:padding="8dp">
 
-            <TextView
-                android:id="@+id/sl"
-                android:layout_width="match_parent"
+            <!-- Product Image -->
+            <ImageView
+                android:id="@+id/imgMon"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_vertical"
+                android:background="#E0E0E0"
+            android:scaleType="centerCrop"
+            android:src="@drawable/imgmon1" />
+
+            <!-- Product Details -->
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="100dp"
-                android:maxLines="1"
-                android:text="SLuong"
-                android:textSize="15sp" />
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!-- Product Name -->
+                    <TextView
+                        android:id="@+id/tenMon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:text="Royal salmon set (900g)"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <ImageView
+                        android:id="@+id/btnDelete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_close"
+                        />
+                </LinearLayout>
+
+
+                <!-- Price -->
+                <TextView
+                    android:id="@+id/giaMon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="49,999$"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+
+                <!-- Quantity Selector -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/rounded_border"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnGiam"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="−"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/sl"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/btnTang"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:text="+"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/khungtext"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/btnGiam"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:text="-"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:textSize="15sp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <View
-
-                    android:layout_width="2dp"
-                    android:layout_height="30dp"
-                    android:background="@color/camDam" />
-            </LinearLayout>
-            <TextView
-                android:id="@+id/slDat"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:text="1"
-                android:textAlignment="center"
-                android:textSize="15sp"
-                android:layout_gravity="center"
-
-                />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <View
-
-                    android:layout_width="2dp"
-                    android:layout_height="30dp"
-                    android:background="@color/camDam" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/btnTang"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:text="+"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:textSize="15sp" />
-    </LinearLayout>
-    </LinearLayout>
+    <!-- Add Note Section -->
     <LinearLayout
-        android:layout_marginLeft="15dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/camDam"
-        android:orientation="vertical">
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_border"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/edtaddNote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add note"
+            android:textColor="#888888"
+            android:textSize="14sp" />
 
         <ImageView
-            android:layout_gravity="center"
-            android:id="@+id/btnDelete"
-            android:layout_width="38dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_close" />
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:backgroundTint="@color/xam"
+            android:src="@drawable/icon_plus" />
     </LinearLayout>
+
 </LinearLayout>
-</androidx.cardview.widget.CardView>
