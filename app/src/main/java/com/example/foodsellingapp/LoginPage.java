@@ -40,13 +40,13 @@ private ProgressDialog progressDialog;
         progressDialog.setTitle("Wait for minutes...");
         progressDialog.setCanceledOnTouchOutside(false);
         //click cancel
-        binding.btnRegis.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(LoginPage.this,RegisterPage.class));
-            }
-        });
+//        binding.btnRegis.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                startActivity(new Intent(LoginPage.this,RegisterPage.class));
+//            }
+//        });
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

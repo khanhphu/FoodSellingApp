@@ -44,13 +44,7 @@ private ProgressDialog progressDialog;
         progressDialog=new ProgressDialog(this);
         progressDialog.setTitle("Wait for minutes...");
         progressDialog.setCanceledOnTouchOutside(false);
-        //click cancel
-        binding.cancelBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+
         //click rgt ...
         binding.rgtBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +52,7 @@ private ProgressDialog progressDialog;
                 validateData();
             }
         });
+        //
     }
 
     String name="", email="",pass="", repass="";
@@ -66,6 +61,8 @@ private ProgressDialog progressDialog;
                 email=binding.edtEmail.getText().toString().trim();
                 pass=binding.edtPass.getText().toString().trim();
                 repass=binding.edtRePass.getText().toString().trim();
+
+
                 if(name.isEmpty() ){
                     Toast.makeText(this,"Enter your name",Toast.LENGTH_SHORT).show();
 

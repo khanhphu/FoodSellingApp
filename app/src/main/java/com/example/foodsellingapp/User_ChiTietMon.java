@@ -3,6 +3,8 @@ package com.example.foodsellingapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,19 +41,22 @@ public class User_ChiTietMon extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityUserChiTietMonBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-     //   btnBack=findViewById(R.id.btnbacktoolbar);
-//        binding.btnback.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onBackPressed();
-//            }
-//        });
+
         binding.btnMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent( User_ChiTietMon.this,User_Menu.class));
             }
         });
+        binding.btnFloatAddToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+           //
+
+
+            }
+        });
+        binding.btnback.setOnClickListener(v-> finish());
     getIntentExtra();
     setVariable();
 //    getDatafromIntent();
