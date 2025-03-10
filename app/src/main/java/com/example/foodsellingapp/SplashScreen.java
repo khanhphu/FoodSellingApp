@@ -49,7 +49,7 @@ public class SplashScreen extends AppCompatActivity {
 
         // Navigate to the main activity after a delay
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            Intent intent = new Intent(SplashScreen.this,User_MainPage.class);
+            Intent intent = new Intent(SplashScreen.this, Onboarding.class);
             startActivity(intent);
             finish();
         }, 2500); // 2.5 seconds delay

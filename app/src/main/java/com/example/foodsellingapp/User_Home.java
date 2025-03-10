@@ -101,7 +101,6 @@ public class User_Home extends Fragment {
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         arrmon.clear();
                         List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
-                        Toast.makeText(getContext(), "Documents found: " + list.size(), Toast.LENGTH_SHORT).show();
                         for (DocumentSnapshot documentSnapshot : list) {
                             MonAn model = documentSnapshot.toObject(MonAn.class);
                             arrmon.add(model);

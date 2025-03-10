@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/forgotpass"
+    android:background="@color/cam"
     tools:context=".ForgotPassActivity">
 
     <!-- Semi-transparent Overlay for Better Text Readability -->
@@ -26,21 +26,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
             android:text="Forgot Password?"
             android:textColor="@android:color/white"
             android:textSize="28sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="24dp" />
+            android:textStyle="bold" />
 
         <!-- Email Input -->
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:textColorHint="@android:color/white"
-            app:boxStrokeColor="@android:color/white"
             app:boxBackgroundColor="#20FFFFFF"
+            app:boxStrokeColor="@android:color/white"
             app:startIconDrawable="@drawable/mail_ic"
             app:startIconTint="@android:color/white">
 
@@ -48,10 +48,10 @@
                 android:id="@+id/txtForgotMail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@null"
                 android:padding="12dp"
                 android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                android:background="@null" />
+                android:textColorHint="@android:color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Submit Button -->
@@ -67,7 +67,6 @@
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
-
 
 
     </LinearLayout>
