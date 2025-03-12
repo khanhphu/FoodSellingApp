@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodsellingapp.ChangeNumberItemsListerner;
+import com.example.foodsellingapp.Format;
 import com.example.foodsellingapp.ManagementCart;
 import com.example.foodsellingapp.Model.GioHang;
 import com.example.foodsellingapp.Model.MonAn;
@@ -51,7 +52,7 @@ public class User_AdapterGioHang extends RecyclerView.Adapter<User_AdapterGioHan
         MonAn monAn=arrMonAnTrongGioHang.get(position);
          holder.tenMon.setText(monAn.getTenMon());
          Integer giaBan=monAn.getGia()+monAn.getPhuThu();
-         holder.giaMon.setText("$"+giaBan);
+         holder.giaMon.setText(Format.formatVND(monAn.getGia()));
          holder.sl.setText("x"+ String.valueOf(monAn.getNumberinCart()));
          holder.slDat.setText(String.valueOf(monAn.getNumberinCart()));
         Picasso.get().load(arrMonAnTrongGioHang.get(position).getUrl()).into(holder.imgMon);

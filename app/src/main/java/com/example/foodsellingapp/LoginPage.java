@@ -39,14 +39,7 @@ private ProgressDialog progressDialog;
         progressDialog=new ProgressDialog(this);
         progressDialog.setTitle("Wait for minutes...");
         progressDialog.setCanceledOnTouchOutside(false);
-        //click cancel
-//        binding.btnRegis.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(LoginPage.this,RegisterPage.class));
-//            }
-//        });
+
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +53,10 @@ private ProgressDialog progressDialog;
                 startActivity(new Intent(LoginPage.this, ForgotPassActivity.class));
             }
         });
+      binding.txtRegisterLink.setOnClickListener(v->{
 
+          startActivity(new Intent(LoginPage.this, RegisterPage.class));
+      });
     }
 String email="",pass="";
     private void validateData() {

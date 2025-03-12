@@ -80,7 +80,7 @@ public class Ad_ThongKe extends AppCompatActivity {
                 showBottomSheet();
             }
         });
-        //btn refresh
+        //btn refreshfp
         binding.btnRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -592,8 +592,7 @@ ad_adapterThongKe.notifyDataSetChanged();
                     Log.d("Firestore", "Total tongCong: " + totalTongCong);
                     // Format the number with commas
                     NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.getDefault());
-                    String formattedTotal = numberFormat.format(totalTongCong); // Fixed typo: formatedTotal -> formattedTotal
-                    binding.txtCount.setText(formattedTotal);
+                    binding.txtCount.setText(Format.formatVND(totalTongCong));
                     binding.txtCount.setVisibility(View.VISIBLE);
                 })
                 .addOnFailureListener(e -> {
@@ -607,11 +606,11 @@ ad_adapterThongKe.notifyDataSetChanged();
     public String[] getDateRange(String selectedDate) {
         try {
             // Parse the selected date from "dd/MM/yyyy" format
-            SimpleDateFormat inputFormat = new SimpleDateFormat("dd/M/yyyy", Locale.getDefault());
+            SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
             Date date = inputFormat.parse(selectedDate);
 
             // Create format for Firestore's ngayTao ("yyyy-MM-dd HH:mm:ss")
-            SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+            SimpleDateFormat outputFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault());
 
             // Set start of day (00:00:00)
             Calendar calendar = Calendar.getInstance();
@@ -671,8 +670,8 @@ ad_adapterThongKe.notifyDataSetChanged();
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
-                            statisticItems.add(new StatisticItems(doc.getId(), StatisticItems.TYPE_DONHANG,
-                                    doc.getString("ngayTao"), doc.getString("trangThai"), 0, 0));
+                            statisticItems.add(new StatisticItems(doc.getId(),
+                                    doc.getString("ngayTao"),"DH", doc.getString("trangThai"), 0, 0));
 
                         }
                         Log.d("Firestore", "statisticItems size after fetch: " + statisticItems.size());

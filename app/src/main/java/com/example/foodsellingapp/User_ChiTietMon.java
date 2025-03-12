@@ -74,7 +74,7 @@ public class User_ChiTietMon extends AppCompatActivity {
             public void onClick(View v) {
                 num=num+1;
                 binding.detailSLMua.setText(String.valueOf(num));
-                binding.total.setText(String.valueOf(num*giaBan));
+                binding.total.setText(Format.formatVND(num*giaBan));
             }
         });
         binding.btnGiam.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +83,7 @@ public class User_ChiTietMon extends AppCompatActivity {
                 if(  num>1){
                     num=num-1;
                     binding.detailSLMua.setText(String.valueOf(num));
-                    binding.total.setText(String.valueOf(num*giaBan));
+                    binding.total.setText(Format.formatVND(num*giaBan));
                 }
 
             }
@@ -103,7 +103,7 @@ public class User_ChiTietMon extends AppCompatActivity {
         binding.detailTenMon.setText(object.getTenMon());
         Integer giaTien=object.getGia()+object.getPhuThu();
       //  binding.detailGia.setText(String.valueOf(giaTien));
-        binding.total.setText(String.valueOf(num*giaTien));
+        binding.total.setText(Format.formatVND(num*giaTien));
         binding.detailGioiThieu.setText(object.getGioiThieu());
         //them sl
         binding.btnTang.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +115,7 @@ public class User_ChiTietMon extends AppCompatActivity {
               else{
                   num=num+1;
                   binding.detailSLMua.setText(String.valueOf(num));
-                  binding.total.setText(String.valueOf(num*giaTien));
+                  binding.total.setText(Format.formatVND(num*giaTien));
 
               }
 
@@ -130,7 +130,7 @@ public class User_ChiTietMon extends AppCompatActivity {
                 if(num>1){
                  num=num-1;
                  binding.detailSLMua.setText(String.valueOf(num));
-                 binding.total.setText(String.valueOf(num*giaTien));
+                    binding.total.setText(Format.formatVND(num*giaTien));
              }
 
             }

@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.foodsellingapp.Format;
 import com.example.foodsellingapp.Model.CTDonHang;
 import com.example.foodsellingapp.databinding.ListUserDonhangBinding;
 
@@ -35,7 +36,7 @@ private ListUserDonhangBinding binding;
         CTDonHang dh=arrDH.get(position);
         holder.dhTenMon.setText(dh.getTenMon());
         holder.dhSL.setText(""+dh.getSl()+"X");
-        holder.dhGia.setText(""+dh.getGia());
+        holder.dhGia.setText(Format.formatVND(dh.getGia()));
     }
 
     @Override

@@ -52,7 +52,9 @@ private ProgressDialog progressDialog;
                 validateData();
             }
         });
-        //
+        binding.signInLink.setOnClickListener(v -> {
+            startActivity(new Intent(this,LoginPage.class));
+        });
     }
 
     String name="", email="",pass="", repass="";
@@ -115,7 +117,6 @@ private ProgressDialog progressDialog;
         hashMap.put("uid",uid);
         hashMap.put("email",email);
         hashMap.put("name",name);
-        hashMap.put("profileImage","");
         hashMap.put("userType","user");
         hashMap.put("timestamp",timestamp);
         //set data to firebase store

@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.foodsellingapp.Format;
 import com.example.foodsellingapp.Model.MonAn;
 import com.example.foodsellingapp.R;
 import com.example.foodsellingapp.TimKiemMonAn;
@@ -59,7 +60,7 @@ public class User_AdpaterMonAn extends RecyclerView.Adapter<User_AdpaterMonAn.Ho
         //gui tu ma mon tu ma mon truy van cac thong tin mon
 
 
-        holder.menuGia.setText(giaBan.toString());
+        holder.menuGia.setText(Format.formatVND(giaBan));
         //for Monan chi tiet
 
 

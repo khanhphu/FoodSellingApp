@@ -209,6 +209,7 @@ public class Ad_ChinhSuaMon extends AppCompatActivity {
         binding.edtMaMon.getText().clear();
         binding.edtGia.getText().clear();
         binding.edtPhuThu.getText().clear();
+        binding.edtGioiThieu.getText().clear();
     }
 
 

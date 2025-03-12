@@ -14,7 +14,7 @@
         <!--            header-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:background="@color/cammoi"
             android:orientation="horizontal">
 
@@ -33,6 +33,7 @@
                 android:layout_gravity="center"
                 android:text="Thêm món vào menu"
                 android:textAllCaps="true"
+                android:paddingTop="5dp"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold">
