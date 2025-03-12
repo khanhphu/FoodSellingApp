@@ -58,7 +58,7 @@
                     android:text="See all"
                     android:textSize="14sp"
                     android:textColor="#FFFFFF"
-                    android:background="@drawable/sell_all_button_background"
+                    android:backgroundTint="@drawable/sell_all_button_background"
                     android:paddingHorizontal="12dp"
                     android:paddingVertical="6dp" />
             </LinearLayout>
@@ -96,7 +96,7 @@
                     android:text="See all"
                     android:textSize="14sp"
                     android:textColor="#FFFFFF"
-                    android:background="@drawable/sell_all_button_background"
+                    android:backgroundTint="@drawable/sell_all_button_background"
                     android:paddingHorizontal="12dp"
                     android:paddingVertical="6dp" />
             </LinearLayout>

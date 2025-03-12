@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
@@ -18,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -41,26 +43,48 @@ public class User_DonHang extends AppCompatActivity {
         binding = ActivityUserDonHangBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         //get intent
+        String maDon=getIntent().getStringExtra("maDH");
+        if(maDon==null){
+            binding.secEmpty.setVisibility(View.VISIBLE);
+            binding.secOrder.setVisibility(View.GONE);
+        }
+        else {
+            binding.secOrder.setVisibility(View.VISIBLE);
+            binding.secEmpty.setVisibility(View.GONE);
+            binding.btnHome.setVisibility(View.GONE);
+            this.maDH = getIntent().getStringExtra("maDH");
+            Toast.makeText(User_DonHang.this, maDH, Toast.LENGTH_SHORT).show();
+            //load in4 :
+            loadCTDH();
+            updateDH();
+            handleRadioButton();
+        }
+        // Set up navigation buttons
+       binding.btnDH.setOnClickListener(v -> {
+            // Already on Order page
+            updateTabStyles(binding.btnDH, true);
+            updateTabStyles(binding.btnMoreDH, false);
+            updateTabStyles(binding.btnHome, false);
+            //default
+        });
 
+      binding.btnMoreDH.setOnClickListener(v -> {
+            Toast.makeText(this, "Navigate to Others", Toast.LENGTH_SHORT).show();
+            updateTabStyles(binding.btnDH, false);
+            updateTabStyles(binding.btnMoreDH, true);
+            updateTabStyles(binding.btnHome, false);
+          startActivity(new Intent(User_DonHang.this,User_DSDonHang.class));
 
-            String maDon=getIntent().getStringExtra("maDH");
-            if(maDon==null){
-                binding.secEmpty.setVisibility(View.VISIBLE);
-                binding.secOrder.setVisibility(View.GONE);
-            }
-            else {
-                binding.secOrder.setVisibility(View.VISIBLE);
-                binding.secEmpty.setVisibility(View.GONE);
-                binding.btnHome.setVisibility(View.GONE);
-                this.maDH = getIntent().getStringExtra("maDH");
-                Toast.makeText(User_DonHang.this, maDH, Toast.LENGTH_SHORT).show();
-                //load in4 :
-                loadCTDH();
-                updateDH();
-                handleRadioButton();
-            }
+        });
 
+        binding.btnHome.setOnClickListener(v -> {
+            Toast.makeText(this, "Navigate to Home", Toast.LENGTH_SHORT).show();
+            updateTabStyles(binding.btnDH, false);
+            updateTabStyles(binding.btnMoreDH, false);
+            updateTabStyles(binding.btnHome, true);
+            startActivity(new Intent(  User_DonHang.this, User_MainPage.class));
 
+        });
 
         binding.btnDeleteDH.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,44 +92,78 @@ public class User_DonHang extends AppCompatActivity {
                 deleteDH();
             }
         });
-        binding.btnSaveDH.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        // Set up Save button
+        binding.btnSaveDH.setOnClickListener(v -> {
+            if (validateForm()) {
+                String phone =binding.txtSDT.getText().toString().trim();
+                String delivery =binding.grRdt.getCheckedRadioButtonId() == R.id.rdtGiao ? "Giao hàng" : "Đến lấy";
+                String payment =binding.grRdtPay.getCheckedRadioButtonId() == R.id.rdtTM ? "Tiền mặt" : "Chuyển khoản";
+                Toast.makeText(this, "Order Saved\nPhone: " + phone + "\nDelivery: " + delivery + "\nPayment: " + payment, Toast.LENGTH_LONG).show();
                 saveDH();
             }
         });
-        //
-        binding.btnDH.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                binding.btnDH.setBackgroundResource(R.drawable.border4userpro5);
-                binding.btnMoreDH.setBackgroundResource(R.drawable.checkout_frame);
-            }
-        });
-        binding.btnMoreDH.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                binding.btnMoreDH.setBackgroundResource(R.drawable.border4userpro5);
-                binding.btnDH.setBackgroundResource(R.drawable.checkout_frame);
-                 startActivity(new Intent(User_DonHang.this,User_DSDonHang.class));
-            }
-        });
-        binding.btnCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(User_DonHang.this,User_Menu.class));
 
-            }
-        });
-        binding.btnHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(  User_DonHang.this, User_MainPage.class));
-            }
-        });
+        //
+//        binding.btnDH.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                binding.btnDH.setBackgroundResource(R.drawable.border4userpro5);
+//                binding.btnMoreDH.setBackgroundResource(R.drawable.checkout_frame);
+//            }
+//        });
+//        binding.btnMoreDH.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                binding.btnMoreDH.setBackgroundResource(R.drawable.border4userpro5);
+//                binding.btnDH.setBackgroundResource(R.drawable.checkout_frame);
+//                 startActivity(new Intent(User_DonHang.this,User_DSDonHang.class));
+//            }
+//        });
+//        binding.btnCart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(User_DonHang.this,User_Menu.class));
+//
+//            }
+//        });
+//        binding.btnHome.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(  User_DonHang.this, User_MainPage.class));
+//            }
+//        });
 
     }
+    private boolean validateForm() {
+        boolean isValid = true;
 
+        String phone =binding.txtSDT.getText().toString().trim();
+        if (TextUtils.isEmpty(phone)) {
+           binding.txtSDT.setError("Phone number is required");
+            isValid = false;
+        } else if (phone.length() < 10) {
+           binding.txtSDT.setError("Phone number must be at least 10 digits");
+            isValid = false;
+        } else {
+          binding.txtSDT.setError(null);
+        }
+
+        if (binding.grRdt.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "Please select a delivery option", Toast.LENGTH_SHORT).show();
+            isValid = false;
+        }
+
+        if (binding.grRdtPay.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "Please select a payment option", Toast.LENGTH_SHORT).show();
+            isValid = false;
+        }
+
+        return isValid;
+    }
+    private void updateTabStyles(MaterialButton button, boolean isSelected) {
+        button.setTextColor(isSelected ? getResources().getColor(R.color.cam) : getResources().getColor(android.R.color.black));
+        button.setIconTintResource(isSelected ? R.color.cam : android.R.color.black);
+    }
     private void deleteDH() {
         CollectionReference collectionRef = firestore.collection("DonHang");
         DocumentReference docRef = collectionRef.document(maDH);
@@ -130,18 +188,7 @@ public class User_DonHang extends AppCompatActivity {
     }
 
     private void saveDH() {
-       if(binding.txtSDT.getText().toString().isEmpty()){
-           binding.txtSDT.setError("Enter your phone number");
-           return;
-       }
-       if(binding.rdtGiao.isChecked()==false && binding.rdtLay.isChecked()==false){
-           Toast.makeText(User_DonHang.this,"Select delivery !",Toast.LENGTH_SHORT).show();
-           return;
-       }
-       if(binding.rdtTM.isChecked()==false && binding.rdtCK.isChecked()==false){
-           Toast.makeText(User_DonHang.this,"Select payment !",Toast.LENGTH_SHORT).show();
-           return;
-       }
+
        String sdt=binding.txtSDT.getText().toString();
         HashMap<String,Object> hashMap=new HashMap<>();
         hashMap.put("lienHe",sdt);
@@ -190,6 +237,7 @@ String giaoHang;
                 }
                 else if(checkedId==binding.rdtCK.getId()){
                     pay="Chuyển khoản";
+
                 }
             }
         });
@@ -204,7 +252,6 @@ String giaoHang;
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 int tong=task.getResult().getDouble("tongCong").intValue();
                 binding.txtTongDH.setText(""+tong);
-//                binding.txtTrangThai.setText(task.getResult().getString("trangThai"));
                 binding.txtTrangThai.setText("Chờ xác nhận");
                 String uid=task.getResult().getString("maKH");
                 loadUser(uid);

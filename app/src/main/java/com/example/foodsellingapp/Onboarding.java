@@ -27,7 +27,7 @@ public class Onboarding extends AppCompatActivity {
     private TabLayout dotsIndicator;
     private MaterialButton getStartedBtn;
     private TextView signInLink;
-    private TextView skipBtn;
+    private TextView skipBtn, notsigninUser;
     private Handler autoSlideHandler;
     private Runnable autoSlideRunnable;
     private boolean isUserInteracting = false;
@@ -52,7 +52,7 @@ public class Onboarding extends AppCompatActivity {
         if (skipBtn == null) Log.e(TAG, "skipBtn is null");
 
         List<OnboardingItem> onboardingItems = new ArrayList<>();
-        onboardingItems.add(new OnboardingItem(R.drawable.logofood_ic, "Recipe App", ""));
+        onboardingItems.add(new OnboardingItem(R.drawable.logofood_ic, "Food Selling App", ""));
         onboardingItems.add(new OnboardingItem(0, "Your Recipe Haven Awaits Exploration!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"));
         onboardingItems.add(new OnboardingItem(0, "Explore a World of Culinary Delights.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"));
         Log.d(TAG, "Onboarding items created: " + onboardingItems.size());
@@ -82,12 +82,18 @@ public class Onboarding extends AppCompatActivity {
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
                 Log.d(TAG, "Page selected: " + position);
-                if (position == onboardingItems.size() - 1 || position == 1) {
+                if (position == 1) { // Second slide (position 1)
                     getStartedBtn.setVisibility(View.VISIBLE);
                     signInLink.setVisibility(View.VISIBLE);
                     skipBtn.setVisibility(View.GONE);
-                } else {
+                    notsigninUser.setVisibility(View.GONE);
+                } else if (position == 2) { // Third slide (position 2)
                     getStartedBtn.setVisibility(View.GONE);
+                    signInLink.setVisibility(View.GONE);
+                    skipBtn.setVisibility(View.VISIBLE);
+                    notsigninUser.setVisibility(View.VISIBLE);
+                } else { // First slide (position 0)
+                    getStartedBtn.setVisibility(View.VISIBLE);
                     signInLink.setVisibility(View.GONE);
                     skipBtn.setVisibility(View.VISIBLE);
                 }
@@ -128,6 +134,12 @@ public class Onboarding extends AppCompatActivity {
             startActivity(intent);
             finish();
             Log.d(TAG, "Skip clicked");
+        });
+        notsigninUser=findViewById(R.id.notsigninUser);
+        notsigninUser.setOnClickListener(v->{
+            Intent intent = new Intent(Onboarding.this, User_MainPage.class);
+            startActivity(intent);
+            finish();
         });
     }
 

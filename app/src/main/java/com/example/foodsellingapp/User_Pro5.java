@@ -3,7 +3,9 @@ package com.example.foodsellingapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -22,29 +24,43 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.squareup.picasso.Picasso;
+
+import javax.crypto.spec.PSource;
 
 public class User_Pro5 extends AppCompatActivity {
 ImageView btnback;
 private ActivityUserPro5Binding binding;
 private FirebaseAuth firebaseAuth;
+private FirebaseFirestore firestore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding=ActivityUserPro5Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        //back
-        btnback=findViewById(R.id.btnbacktoolbar);
-        btnback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
         //user pro5
         firebaseAuth=FirebaseAuth.getInstance();
+        firestore=FirebaseFirestore.getInstance();
 
         loadPro5();
+        binding.btnSetting.setOnClickListener(v->{
+            startActivity(new Intent(this,User_SettingAccount.class));
+        });
+countOrders();
+    }
 
+    private void countOrders() {
+        firestore.collection("DonHang")
+                .whereEqualTo("maKH",firebaseAuth.getCurrentUser().getUid())
+                .addSnapshotListener((value, error) -> {
+                    if (error != null) {
+                        return;
+                    }
+                    if (value != null) {
+                        long orderCount = value.size();
+                        binding.countOrder.setText(String.valueOf(orderCount));
+                    }
+                });
     }
 
     private void loadPro5() {
@@ -56,7 +72,15 @@ private FirebaseAuth firebaseAuth;
                public void onSuccess(DocumentSnapshot documentSnapshot) {
                    String name=documentSnapshot.getString("name");
                    binding.txtUserName.setText(name);
-                   binding.txtuserMail.setText(documentSnapshot.getString("email"));
+                   binding.txtEmail.setText(documentSnapshot.getString("email"));
+                  String imageUrl=documentSnapshot.getString("profileImageUrl");
+                  if(imageUrl==null){
+                      imageUrl= String.valueOf(R.drawable.user_ic);
+                  }
+
+                      Picasso.get().load(imageUrl).into(binding.imgUser);
+
+
                }
            });
 

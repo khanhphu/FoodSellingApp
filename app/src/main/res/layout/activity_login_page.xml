@@ -118,7 +118,7 @@
                     android:textSize="14sp" />
 
                 <!-- Login Button -->
-                <com.google.android.material.button.MaterialButton
+                <Button
                     android:id="@+id/btnLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -127,7 +127,7 @@
                     android:textColor="@android:color/white"
                     app:cornerRadius="24dp"
                     app:backgroundTint="#FF5722"
-                    style="@style/Widget.MaterialComponents.Button" />
+                   />
 
                 <!-- Or Sign In With Text -->
                 <TextView
@@ -148,22 +148,22 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginEnd="16dp"
                         android:src="@drawable/ic_apple"
                         android:contentDescription="Sign in with Apple" />
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginEnd="16dp"
                         android:src="@drawable/ic_google"
                         android:contentDescription="Sign in with Google" />
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/ic_facebook"
                         android:contentDescription="Sign in with Facebook" />
                 </LinearLayout>
@@ -178,6 +178,16 @@
                     android:text="No account? Register"
                     android:textColor="#FF5722"
                     android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/notLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:text="Continue with guest mode"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:textStyle="italic"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
