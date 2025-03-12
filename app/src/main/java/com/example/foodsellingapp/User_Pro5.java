@@ -46,22 +46,9 @@ private FirebaseFirestore firestore;
         binding.btnSetting.setOnClickListener(v->{
             startActivity(new Intent(this,User_SettingAccount.class));
         });
-countOrders();
+//countOrders();
     }
 
-    private void countOrders() {
-        firestore.collection("DonHang")
-                .whereEqualTo("maKH",firebaseAuth.getCurrentUser().getUid())
-                .addSnapshotListener((value, error) -> {
-                    if (error != null) {
-                        return;
-                    }
-                    if (value != null) {
-                        long orderCount = value.size();
-                        binding.countOrder.setText(String.valueOf(orderCount));
-                    }
-                });
-    }
 
     private void loadPro5() {
         FirebaseFirestore firestore=FirebaseFirestore.getInstance();
