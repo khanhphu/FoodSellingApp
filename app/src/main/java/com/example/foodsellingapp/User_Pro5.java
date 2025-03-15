@@ -29,47 +29,62 @@ import com.squareup.picasso.Picasso;
 import javax.crypto.spec.PSource;
 
 public class User_Pro5 extends AppCompatActivity {
-ImageView btnback;
-private ActivityUserPro5Binding binding;
-private FirebaseAuth firebaseAuth;
-private FirebaseFirestore firestore;
+    ImageView btnback;
+    private ActivityUserPro5Binding binding;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore firestore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=ActivityUserPro5Binding.inflate(getLayoutInflater());
+        binding = ActivityUserPro5Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         //user pro5
-        firebaseAuth=FirebaseAuth.getInstance();
-        firestore=FirebaseFirestore.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
 
         loadPro5();
-        binding.btnSetting.setOnClickListener(v->{
-            startActivity(new Intent(this,User_SettingAccount.class));
+        binding.btnSetting.setOnClickListener(v -> {
+            startActivity(new Intent(this, User_SettingAccount.class));
         });
-//countOrders();
+        countOrders();
+    }
+
+    private void countOrders() {
+        firestore.collection("DonHang").whereEqualTo("maKH", firebaseAuth.getCurrentUser().getUid())
+
+                .addSnapshotListener((value, error) -> {
+                    if (error != null) {
+                        return;
+                    }
+                    if (value != null) {
+                        long orderCount = value.size();
+                        binding.countOrder.setText(String.valueOf(orderCount));
+                    }
+                });
     }
 
 
     private void loadPro5() {
-        FirebaseFirestore firestore=FirebaseFirestore.getInstance();
-        FirebaseUser user=firebaseAuth.getCurrentUser();
-        DocumentReference ref=firestore.collection("Users").document(user.getUid());
-           ref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-               @Override
-               public void onSuccess(DocumentSnapshot documentSnapshot) {
-                   String name=documentSnapshot.getString("name");
-                   binding.txtUserName.setText(name);
-                   binding.txtEmail.setText(documentSnapshot.getString("email"));
-                  String imageUrl=documentSnapshot.getString("profileImageUrl");
-                  if(imageUrl==null){
-                      imageUrl= String.valueOf(R.drawable.user_ic);
-                  }
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        DocumentReference ref = firestore.collection("Users").document(user.getUid());
+        ref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                String name = documentSnapshot.getString("name");
+                binding.txtUserName.setText(name);
+                binding.txtEmail.setText(documentSnapshot.getString("email"));
+                String imageUrl = documentSnapshot.getString("profileImageUrl");
+                if (imageUrl == null) {
+                    imageUrl = String.valueOf(R.drawable.user_ic);
+                }
 
-                      Picasso.get().load(imageUrl).into(binding.imgUser);
+                Picasso.get().load(imageUrl).into(binding.imgUser);
 
 
-               }
-           });
+            }
+        });
 
     }
 }

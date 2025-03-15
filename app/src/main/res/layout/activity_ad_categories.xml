@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/trangNga"
-    tools:context=".Ad_ThongKe">
+    tools:context=".Ad_Categories">
 
     <!-- Header Card -->
     <androidx.cardview.widget.CardView
@@ -43,11 +43,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Statistic Page"
+                    android:text="Category Page"
                     android:textColor="@color/cam"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    android:gravity="center_vertical|start" />
+                     />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -73,11 +73,12 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <ImageView
-                    android:id="@+id/btnFilter"
+                    android:id="@+id/btnManageCaterogy"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="end"
-                    android:src="@drawable/ic_filter"
+                    android:src="@drawable/icon_plus"
+                    app:tint="@color/camDam"
                     android:contentDescription="Filter"
                     android:padding="8dp"
                     android:background="?android:attr/selectableItemBackgroundBorderless" />
@@ -101,62 +102,17 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
 
-                <TextView
-                    android:id="@+id/txtResultDate"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Date: [Dynamic Date]"
-                android:textSize="14sp"
-                android:textStyle="italic"
-                android:textColor="#616161" />
-
-                <ImageView
-                    android:id="@+id/btn_refresh"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/ic_refresh"
-                    android:contentDescription="Refresh"
-                    android:padding="4dp"
-                    android:background="?android:attr/selectableItemBackgroundBorderless" />
-            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginVertical="12dp"
                 android:background="@color/camDam" />
-
-            <LinearLayout
+            <Spinner
+                android:id="@+id/spCategory"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:id="@+id/txtResultFilter"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Result: [Dynamic Filter]"
-                android:textSize="14sp"
-                android:textColor="#424242" />
-
-                <TextView
-                    android:id="@+id/txtCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Total: [Dynamic Count]"
-                android:textSize="12sp"
-                android:textColor="#616161"
-                android:visibility="visible" />
-            </LinearLayout>
+                android:layout_height="50dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -173,13 +129,13 @@
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listFilter"
+                android:id="@+id/listCate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
                 android:padding="12dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/list_filter" />
+                tools:listitem="@layout/list_category" />
 
             <!-- Optional Progress Bar -->
             <ProgressBar

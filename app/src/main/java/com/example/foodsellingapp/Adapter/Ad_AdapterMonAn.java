@@ -62,6 +62,7 @@ public class Ad_AdapterMonAn extends RecyclerView.Adapter<Ad_AdapterMonAn.Holder
         Integer phuThu=model.getPhuThu();
         Integer sl=model.getSoLuong();
         String gioiThieu= model.getGioiThieu();
+        String cateName=model.getCategoryName();
         //duoc se them timestamp de xu ly ngay gio tao moi
 
         //set data for recycler view
@@ -69,8 +70,7 @@ public class Ad_AdapterMonAn extends RecyclerView.Adapter<Ad_AdapterMonAn.Holder
         holder.txtTenMon.setText(tenMon);
         holder.txtGia.setText(gia.toString());
         holder.txtPhuThu.setText(phuThu.toString());
-//        holder.txtGioiThieu.setTextSize(4);
-//        holder.txtGioiThieu.setText(gioiThieu.toString());
+        holder.txtCate.setText(cateName);
         holder.txtSL.setText(sl.toString());
         //Get Image:
         String url=model.getUrl();
@@ -95,6 +95,7 @@ public class Ad_AdapterMonAn extends RecyclerView.Adapter<Ad_AdapterMonAn.Holder
                 intent.putExtra("phuThu",st_phuThu);
                 intent.putExtra("url",url);
                 intent.putExtra("soLuong",st_sl);
+                intent.putExtra("categoryName",cateName);
                 context.startActivity(intent);
             }
         });
@@ -136,7 +137,7 @@ public class Ad_AdapterMonAn extends RecyclerView.Adapter<Ad_AdapterMonAn.Holder
     class HolderAdMonAn extends RecyclerView.ViewHolder{
         //khai bao cac item co trong list_admin_mon.xml
         ImageView imgMon;
-        TextView txtMaMon, txtTenMon,txtGia,txtPhuThu, txtGioiThieu;
+        TextView txtMaMon, txtTenMon,txtGia,txtPhuThu, txtCate;
         //cai nay se truy van sau
         TextView txtSL;
         ImageView btnEdit, btnDelete;
@@ -149,9 +150,11 @@ public class Ad_AdapterMonAn extends RecyclerView.Adapter<Ad_AdapterMonAn.Holder
             txtPhuThu=binding.txtPhuThu;
             btnEdit=binding.btnEdit;
             btnDelete=binding.btnDelete;
-            txtGioiThieu=binding.txtGioiThieu;
+//            txtGioiThieu=binding.txtGioiThieu;
             txtSL=binding.txtSL;
             //truy van sau
+            txtCate=binding.txtCate;
+
 
         }
     }

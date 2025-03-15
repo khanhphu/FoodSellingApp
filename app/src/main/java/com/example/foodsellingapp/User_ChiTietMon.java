@@ -105,6 +105,7 @@ public class User_ChiTietMon extends AppCompatActivity {
       //  binding.detailGia.setText(String.valueOf(giaTien));
         binding.total.setText(Format.formatVND(num*giaTien));
         binding.detailGioiThieu.setText(object.getGioiThieu());
+        binding.category.setText(object.getCategoryName());
         //them sl
         binding.btnTang.setOnClickListener(new View.OnClickListener() {
             @Override

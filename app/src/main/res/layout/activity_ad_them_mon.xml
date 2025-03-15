@@ -93,7 +93,16 @@
                 android:gravity="top"
                 android:hint="Nhập tên món"
                 android:padding="10dp" />
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <Spinner
+                android:id="@+id/spCategory"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
