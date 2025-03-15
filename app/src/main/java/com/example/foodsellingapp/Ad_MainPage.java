@@ -15,8 +15,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 public class Ad_MainPage extends AppCompatActivity {
-private ActivityAdMainPageBinding binding;
-private FirebaseAuth firebaseAuth;
+    private ActivityAdMainPageBinding binding;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +45,10 @@ private FirebaseAuth firebaseAuth;
                 startActivity(new Intent(Ad_MainPage.this,Ad_DSachMon.class));
             }
         });
-        binding.secThucDon.setOnClickListener(new View.OnClickListener() {
+        binding.secCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Ad_MainPage.this,User_Menu.class));
+                startActivity(new Intent(Ad_MainPage.this,Ad_Categories.class));
 
             }
         });
@@ -91,18 +91,18 @@ private FirebaseAuth firebaseAuth;
 
     private void loadAdminPro5(String uid) {
         FirebaseFirestore firestore=FirebaseFirestore.getInstance();
-       firestore.collection("Users").get()
-               .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                   @Override
-                   public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                       for(QueryDocumentSnapshot qs:queryDocumentSnapshots ){
-                           if(qs.getString("uid").contains(uid)&& qs.getString("userType").contains("admin")){
-                               binding.txtAdName.setText(qs.getString("name"));
-                               binding.txtAdEmail.setText(qs.getString("email"));
-                           }
-                       }
-                   }
-               });
+        firestore.collection("Users").get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        for(QueryDocumentSnapshot qs:queryDocumentSnapshots ){
+                            if(qs.getString("uid").contains(uid)&& qs.getString("userType").contains("admin")){
+                                binding.txtAdName.setText(qs.getString("name"));
+                                binding.txtAdEmail.setText(qs.getString("email"));
+                            }
+                        }
+                    }
+                });
 
     }
 }

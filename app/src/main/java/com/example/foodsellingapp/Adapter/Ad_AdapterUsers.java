@@ -48,6 +48,7 @@ public class Ad_AdapterUsers extends RecyclerView.Adapter<Ad_AdapterUsers.Holder
         holder.txtCusName.setText(cusName);
         holder.txtCusMail.setText(cusEmail);
         holder.txtSLDonHang.setText("30");//chua xu ly
+//        int url=usersModel.getProfileImage()
     }
 
     @Override

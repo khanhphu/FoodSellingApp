@@ -25,6 +25,7 @@
             android:layout_height="83dp"
             android:paddingBottom="10dp"
             app:tabGravity="center"
+            app:tint="@color/camDam"
             app:tabIndicatorHeight="4dp"
             app:tabMode="fixed" />
 
@@ -34,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/list_category"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_marginTop="16dp"
             android:orientation="horizontal" />
 

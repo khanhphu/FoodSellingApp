@@ -50,7 +50,7 @@
                     android:layout_weight="1"
                     android:text="Data_Ma mon"
                     android:textColor="@color/camDam"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <ImageView
@@ -150,13 +150,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Giới thiệu:"
+                    android:text="Cate:"
                     android:textColor="@color/camDam"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtGioiThieu"
+                    android:id="@+id/txtCate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
