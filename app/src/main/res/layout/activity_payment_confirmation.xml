@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cammoi"
+    android:padding="16dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Order"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:gravity="center"/>
+
+    <!-- Ticket Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/ticket_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/title_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/note_text"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center">
+
+            <!-- Header Section (Status and Icon) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/status_icon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_check"
+                    android:contentDescription="Payment Status"
+                    android:background="@drawable/circle_btnaddtocart_bg"
+                    android:padding="8dp"/>
+
+                <TextView
+                    android:id="@+id/transfer_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Payment Confirmation"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+
+            <!-- Perforated Line -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/dashed_line"
+                android:layout_marginVertical="8dp"/>
+
+            <!-- Details Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="16dp"
+                android:gravity="center">
+
+                <!-- Recipient Section -->
+                <TextView
+                    android:id="@+id/txtResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Order Confirmed"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/status_icon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"/>
+
+                <!-- Message Text -->
+                <TextView
+                    android:id="@+id/message_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thank you for your order. You will receive email confirmation shortly. Check the status of your order on the Order tracking page."
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@id/title_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="16dp"
+                    android:maxLines="3"
+                    android:textStyle="italic"
+                    android:ellipsize="end"/>
+                <!-- Reference Number -->
+                <TextView
+                    android:id="@+id/reference_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reference number\n#B3423424234"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Amount and Fee -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginBottom="16dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/amount_sent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$36.80"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Security Payment"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/darker_gray"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/transfer_fee"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$0.00"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Delivery Faster"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/darker_gray"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Share Button -->
+                <Button
+                    android:id="@+id/btnContinue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Continue to shopping"
+                    android:textSize="16sp"
+                    android:backgroundTint="@color/cammoi"
+                    android:textColor="@android:color/white"
+                    android:padding="12dp"/>
+                <Button
+                    android:id="@+id/share_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Share via Messenger"
+                    android:textSize="16sp"
+
+                    android:textColor="@android:color/white"
+                    android:padding="12dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Note Text -->
+    <TextView
+        android:id="@+id/note_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="It will take less than 12 hours to process it"
+        android:textSize="14sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

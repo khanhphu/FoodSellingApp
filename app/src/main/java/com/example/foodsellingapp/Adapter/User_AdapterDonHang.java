@@ -13,6 +13,7 @@ import com.example.foodsellingapp.Format;
 import com.example.foodsellingapp.Model.CTDonHang;
 import com.example.foodsellingapp.databinding.ListUserDonhangBinding;
 
+import java.text.ChoiceFormat;
 import java.util.ArrayList;
 
 public class User_AdapterDonHang extends RecyclerView.Adapter<User_AdapterDonHang.HolderDonHang> {
@@ -37,6 +38,9 @@ private ListUserDonhangBinding binding;
         holder.dhTenMon.setText(dh.getTenMon());
         holder.dhSL.setText(""+dh.getSl()+"X");
         holder.dhGia.setText(Format.formatVND(dh.getGia()));
+        if(holder.dhGia.getText().toString().isEmpty()){
+            holder.dhGia.setText("loigia");
+        }
     }
 
     @Override

@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+<!--    sharing order by messager-->
+    <queries>
+        <package android:name="com.facebook.orca" />
+    </queries>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,13 +20,13 @@
         android:theme="@style/Theme.FoodSellingApp"
         tools:targetApi="31">
         <activity
+            android:name=".PaymentConfirmation"
+            android:exported="false" />
+        <activity
             android:name=".Ad_Categories"
             android:exported="false" />
         <activity
             android:name=".User_SettingAccount"
-            android:exported="false" />
-        <activity
-            android:name=".UserSettingProfile"
             android:exported="false" />
         <activity
             android:name=".Onboarding"
@@ -41,7 +48,20 @@
             android:exported="false" />
         <activity
             android:name=".User_DonHang"
-            android:exported="false" /> <!-- <activity -->
+            android:exported="true"
+            android:label="Merchant Demo"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="app"
+                    android:scheme="demozpdk" />
+            </intent-filter>
+        </activity> <!-- <activity -->
         <!-- android:name=".User_ShoppingCart" -->
         <!-- android:exported="false" /> -->
         <activity
@@ -52,12 +72,6 @@
             android:exported="false" />
         <activity
             android:name=".Ad_ChinhSuaMon"
-            android:exported="false" />
-        <activity
-            android:name=".TestPhoneRegister"
-            android:exported="true" />
-        <activity
-            android:name=".TestPhoneAuth"
             android:exported="false" />
         <activity
             android:name=".Ad_DSachMon"

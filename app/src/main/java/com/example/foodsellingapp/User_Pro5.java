@@ -33,6 +33,7 @@ public class User_Pro5 extends AppCompatActivity {
     private ActivityUserPro5Binding binding;
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firestore;
+    private static final String TAG = "PROFILE_SETTING";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,13 @@ public class User_Pro5 extends AppCompatActivity {
 
         loadPro5();
         binding.btnSetting.setOnClickListener(v -> {
-            startActivity(new Intent(this, User_SettingAccount.class));
+            try{
+                startActivity(new Intent(this, User_SettingAccount.class));
+
+            }
+            catch (Exception e){
+                Log.e(TAG,e.getMessage());
+            }
         });
         countOrders();
     }
@@ -77,10 +84,13 @@ public class User_Pro5 extends AppCompatActivity {
                 binding.txtEmail.setText(documentSnapshot.getString("email"));
                 String imageUrl = documentSnapshot.getString("profileImageUrl");
                 if (imageUrl == null) {
-                    imageUrl = String.valueOf(R.drawable.user_ic);
+                    Picasso.get().load(R.drawable.user_ic).into(binding.imgUser);
+                }
+                else{
+                    Picasso.get().load(imageUrl).into(binding.imgUser);
+
                 }
 
-                Picasso.get().load(imageUrl).into(binding.imgUser);
 
 
             }
