@@ -1,432 +1,470 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@android:color/white"
     tools:context=".User_DonHang">
 
-    <!-- Navigation Tabs -->
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:scrollbars="none">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingVertical="8dp">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnDH"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="#F5F5F5"
-                android:text="Order"
-                android:textAllCaps="false"
-                android:textColor="#FF5722"
-                android:textSize="15dp"
-                app:cornerRadius="12dp"
-                app:icon="@drawable/ic_order"
-                app:iconGravity="start"
-                app:iconTint="#FF5722"
-                android:maxLines="1"
-                style="@style/Widget.MaterialComponents.Button.TextButton" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnMoreDH"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="#F5F5F5"
-                android:text="Another"
-                android:textAllCaps="false"
-                android:textColor="@android:color/black"
-                android:textSize="11sp"
-                android:maxLines="1"
-                app:cornerRadius="12dp"
-                app:icon="@drawable/ic_other"
-                app:iconGravity="start"
-                app:iconTint="@android:color/black"
-                style="@style/Widget.MaterialComponents.Button.TextButton" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnHome"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#F5F5F5"
-                android:text="Home"
-                android:textAllCaps="false"
-                android:textColor="@android:color/black"
-                android:textSize="15sp"
-                app:cornerRadius="12dp"
-                app:icon="@drawable/ic_home"
-                app:iconGravity="start"
-                app:iconTint="@android:color/black"
-                style="@style/Widget.MaterialComponents.Button.TextButton" />
-        </LinearLayout>
-    </HorizontalScrollView>
-
-    <!-- Order Section -->
-    <ScrollView
-        android:id="@+id/secOrder"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <!-- Navigation Tabs -->
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="16dp"
-            android:paddingBottom="16dp">
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:scrollbars="none">
 
-            <!-- Title and Subtitle -->
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Your Order"
-                android:textColor="@android:color/black"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp" />
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:paddingVertical="8dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Enjoy your meal with our services."
-                android:textColor="@android:color/darker_gray"
-                android:textSize="14sp"
-                android:layout_marginTop="8dp" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDH"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="#F5F5F5"
+                    android:maxLines="1"
+                    android:text="Order"
+                    android:textAllCaps="false"
+                    android:textColor="#FF5722"
+                    android:textSize="15dp"
+                    app:cornerRadius="12dp"
+                    app:icon="@drawable/ic_order"
+                    app:iconGravity="start"
+                    app:iconTint="#FF5722" />
 
-            <!-- Order Card -->
-            <androidx.cardview.widget.CardView
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMoreDH"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="#F5F5F5"
+                    android:maxLines="1"
+                    android:text="Another"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    app:cornerRadius="12dp"
+                    app:icon="@drawable/ic_other"
+                    app:iconGravity="start"
+                    app:iconTint="@android:color/black" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnHome"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#F5F5F5"
+                    android:text="Home"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:cornerRadius="12dp"
+                    app:icon="@drawable/ic_home"
+                    app:iconGravity="start"
+                    app:iconTint="@android:color/black" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Order Section -->
+        <ScrollView
+            android:id="@+id/secOrder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="#F5F5F5">
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingBottom="16dp">
 
-                <LinearLayout
+                <!-- Title and Subtitle -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Your Order"
+                    android:textColor="@android:color/black"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Enjoy your meal with our services."
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+
+                <!-- Order Card -->
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <!-- Logo -->
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/logofood_ic"
-                        android:contentDescription="Food Logo" />
-
-                    <!-- RecyclerView for Order Items -->
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/listOrder"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="8dp"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:listitem="@layout/list_user_donhang" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#FF5722" />
-
-                    <!-- Order Details -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="Chi Tiết Đơn Hàng"
-                        android:textColor="#FF5722"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="#F5F5F5"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:text="Tổng:"
-                            android:textColor="#FF5722"
-                            android:textSize="15sp" />
+                        <!-- Logo -->
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center_horizontal"
+                            android:contentDescription="Food Logo"
+                            android:src="@drawable/logofood_ic" />
 
-                        <TextView
-                            android:id="@+id/txtTongDH"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Tien"
-                            android:textSize="15sp"
-                            android:textColor="@android:color/black" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:text="Tên KH:"
-                            android:textColor="#FF5722"
-                            android:textSize="15sp" />
-
-                        <TextView
-                            android:id="@+id/txtTenKHDH"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="KhachHang01"
-                            android:textSize="15sp"
-                            android:textColor="@android:color/black" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:text="Trạng thái:"
-                            android:textColor="#FF5722"
-                            android:textSize="15sp" />
-
-                        <TextView
-                            android:id="@+id/txtTrangThai"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Trang thai"
-                            android:textSize="15sp"
-                            android:textColor="@android:color/black" />
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginVertical="12dp"
-                        android:background="#FF5722" />
-
-                    <!-- Input Section -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Vui lòng nhập thông tin"
-                        android:textColor="#FF5722"
-                        android:textSize="18sp"
-                        android:textAllCaps="true" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        app:boxStrokeColor="@android:color/black"
-                        app:boxBackgroundColor="@android:color/transparent"
-                        app:hintTextColor="@android:color/darker_gray"
-                        app:helperTextTextColor="@android:color/darker_gray"
-                        app:errorEnabled="true">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txtSDT"
+                        <!-- RecyclerView for Order Items -->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/listOrder"
                             android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:hint="SĐT"
-                            android:inputType="phone"
-                            android:paddingHorizontal="12dp"
-                            android:textSize="15sp"
-                            android:background="@null" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="8dp"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/list_user_donhang" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#FF5722" />
 
+                        <!-- Order Details -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Vận chuyển:"
+                            android:layout_marginTop="16dp"
+                            android:text="Chi Tiết Đơn Hàng"
                             android:textColor="#FF5722"
-                            android:textSize="15sp" />
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
-                        <RadioGroup
-                            android:id="@+id/grRdt"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center_vertical"
                             android:orientation="horizontal">
 
-                            <RadioButton
-                                android:id="@+id/rdtGiao"
-                                android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="100dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="16dp"
-                                android:text="Giao hàng"
-                                android:textColor="@android:color/black"
+                                android:text="Tổng:"
+                                android:textColor="#FF5722"
                                 android:textSize="15sp" />
 
-                            <RadioButton
-                                android:id="@+id/rdtLay"
-                                android:layout_width="wrap_content"
+                            <TextView
+                                android:id="@+id/txtTongDH"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:text="Đến lấy"
+                                android:layout_weight="1"
+                                android:text="Tien"
                                 android:textColor="@android:color/black"
                                 android:textSize="15sp" />
-                        </RadioGroup>
-                    </LinearLayout>
+                        </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
 
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:text="Tên KH:"
+                                android:textColor="#FF5722"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/txtTenKHDH"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="KhachHang01"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:text="Trạng thái:"
+                                android:textColor="#FF5722"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/txtTrangThai"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Trang thai"
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="12dp"
+                            android:background="#FF5722" />
+
+                        <!-- Input Section -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Thanh toán:"
+                            android:layout_marginTop="8dp"
+                            android:text="Vui lòng nhập thông tin"
+                            android:textAllCaps="true"
                             android:textColor="#FF5722"
-                            android:textSize="15sp" />
+                            android:textSize="18sp" />
 
-                        <RadioGroup
-                            android:id="@+id/grRdtPay"
-                            android:layout_width="wrap_content"
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
+                            app:boxBackgroundColor="@android:color/transparent"
+                            app:boxStrokeColor="@android:color/black"
+                            app:errorEnabled="true"
+                            app:helperTextTextColor="@android:color/darker_gray"
+                            app:hintTextColor="@android:color/darker_gray">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/txtSDT"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                android:background="@null"
+                                android:hint="SĐT"
+                                android:inputType="phone"
+                                android:textSize="15sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center_vertical"
                             android:orientation="horizontal">
 
-                            <RadioButton
-                                android:id="@+id/rdtTM"
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="16dp"
-                                android:text="Tiền mặt"
-                                android:textColor="@android:color/black"
+                                android:text="Vận chuyển:"
+                                android:textColor="#FF5722"
                                 android:textSize="15sp" />
 
-                            <RadioButton
-                                android:id="@+id/rdtCK"
+                            <RadioGroup
+                                android:id="@+id/grRdt"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Chuyển khoản"
-                                android:textColor="@android:color/black"
+                                android:layout_marginStart="16dp"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/rdtGiao"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="16dp"
+                                    android:text="Giao hàng"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="15sp" />
+
+                                <RadioButton
+                                    android:id="@+id/rdtLay"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Đến lấy"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="15sp" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Thanh toán:"
+                                android:textColor="#FF5722"
                                 android:textSize="15sp" />
-                        </RadioGroup>
+
+                            <RadioGroup
+                                android:id="@+id/grRdtPay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/rdtTM"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="16dp"
+                                    android:text="Tiền mặt"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="15sp" />
+
+                                <RadioButton
+                                    android:id="@+id/rdtCK"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Chuyển khoản"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="15sp" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="20dp"
+                                android:text="Cổng thanh toán:"
+                                android:textColor="#FF5722"
+                                android:textSize="15sp" />
+
+                            <ImageView
+                                android:id="@+id/imgSelectedPayment"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:contentDescription="Zalo Pay Logo"
+                                android:src="@drawable/ic_zalopay" />
+
+                            <TextView
+                                android:id="@+id/txtSelectedPayment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text=""
+                                android:textColor="@android:color/black"
+                                android:textSize="15sp"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                        <!-- Action Buttons -->
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnSaveDH"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="16dp"
+                            android:text="Save"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp"
+                            app:backgroundTint="#FF5722"
+                            app:cornerRadius="24dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnDeleteDH"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="16dp"
+                            android:text="Delete"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp"
+                            app:backgroundTint="@color/black"
+                            app:cornerRadius="24dp" />
                     </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
 
-                    <!-- Action Buttons -->
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnSaveDH"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginHorizontal="16dp"
-                        android:text="Save"
-                        android:textAllCaps="false"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp"
-                        app:cornerRadius="24dp"
-                        app:backgroundTint="#FF5722" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnDeleteDH"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginHorizontal="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:text="Delete"
-                        android:textAllCaps="false"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp"
-                        app:cornerRadius="24dp"
-                        app:backgroundTint="#FF8A50" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-    </ScrollView>
-
-    <!-- Empty State -->
-    <LinearLayout
-        android:id="@+id/secEmpty"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:visibility="gone">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Empty!!!"
-            android:textAllCaps="true"
-            android:textColor="#FF5722"
-            android:textSize="20sp" />
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/ic_mt"
-            android:contentDescription="Empty State" />
-
+        <!-- Empty State -->
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:id="@+id/secEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Buy now"
+                android:text="Empty!!!"
+                android:textAllCaps="true"
                 android:textColor="#FF5722"
                 android:textSize="20sp" />
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="8dp"
-                android:src="@drawable/ic_arrow"
-                android:contentDescription="Arrow" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="Empty State"
+                android:src="@drawable/ic_mt" />
 
-            <ImageView
-                android:id="@+id/btnCart"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="8dp"
-                android:src="@drawable/ic_shoppingcart"
-                android:contentDescription="Cart" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Buy now"
+                    android:textColor="#FF5722"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="Arrow"
+                    android:src="@drawable/ic_arrow" />
+
+                <ImageView
+                    android:id="@+id/btnCart"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="Cart"
+                    android:src="@drawable/ic_shoppingcart" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

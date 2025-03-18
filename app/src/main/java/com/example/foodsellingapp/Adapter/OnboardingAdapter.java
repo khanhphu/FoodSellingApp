@@ -20,9 +20,9 @@ public class OnboardingAdapter extends RecyclerView.Adapter<OnboardingAdapter.On
     private static final String TAG = "OnboardingAdapter";
     private List<OnboardingItem> onboardingItems;
     private int[] collageImageResources = {
-            R.drawable.imgmon1, R.drawable.imgmon2,
-            R.drawable.imgmon1, R.drawable.imgmon2,
-            R.drawable.imgmon2, R.drawable.imgmon1
+            R.drawable.img_view1, R.drawable.img_view6,
+            R.drawable.img_view2, R.drawable.img_view4,
+            R.drawable.img_view3, R.drawable.img_view5
     };
 
     public OnboardingAdapter(List<OnboardingItem> onboardingItems) {
