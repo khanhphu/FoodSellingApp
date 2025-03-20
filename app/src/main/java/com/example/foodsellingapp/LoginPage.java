@@ -84,6 +84,7 @@ String email="",pass="";
                     public void onSuccess(AuthResult authResult) {
                         progressDialog.dismiss();
                         checkUser();
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

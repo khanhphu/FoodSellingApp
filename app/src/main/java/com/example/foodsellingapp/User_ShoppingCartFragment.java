@@ -158,6 +158,7 @@ String maDH;
            public void onSuccess(DocumentSnapshot documentSnapshot) {
               slDB=documentSnapshot.getLong("soLuong");
              minusQuantityInDB(slDB);
+
            }
        });
 
@@ -198,8 +199,8 @@ String maDH;
     private void calculate() {
      sumSL.setText( ""+ managementCart.totalMon());
       this.tamTinh=  managementCart.getTotalFee();
-     subTotal.setText(String.valueOf(tamTinh));
-     total.setText("$"+subTotal.getText().toString());
+     subTotal.setText(Format.formatVND(managementCart.getTotalFee()));
+     total.setText(Format.formatVND(managementCart.getTotalFee()));
     }
     private void createDetailOrder(int i) {
 

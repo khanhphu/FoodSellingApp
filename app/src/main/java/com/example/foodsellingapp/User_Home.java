@@ -11,6 +11,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -46,8 +47,7 @@ public class User_Home extends Fragment {
     private RecyclerView bannerView;
     private ViewPager2 bannerViewPager;
     private TabLayout bannerIndicator;
-
-
+    private Button btnOrderNow;
     RecyclerView menuMon;
     FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
@@ -72,23 +72,29 @@ public class User_Home extends Fragment {
 //        categoryList.add(new Category("Combo"));
 //        categoryList.add(new Category("Nước uống"));
 //        categoryList.add(new Category("Tráng miệng"));
-  //      categoryAdapter = new CategoryAdapter(requireContext(), categoryList);
+        //      categoryAdapter = new CategoryAdapter(requireContext(), categoryList);
 //        categoryView.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
 //        categoryView.setAdapter(categoryAdapter);
 
         // Banner ViewPager2
         bannerViewPager = view.findViewById(R.id.bannerViewPager);
         bannerIndicator = view.findViewById(R.id.bannerIndicator);
+//        btnOrderNow=bannerView.findViewById(R.id.actionButton);
+//        btnOrderNow.setOnClickListener(v -> {
+//
+//        });
         bannerList = new ArrayList<>();
         bannerList.add(new Banner("", "Get your 20% daily discount now!", "Order now"));
         bannerList.add(new Banner("", "Special Offer Today!", "Order now"));
         BannerAdapter bannerAdapter = new BannerAdapter(requireContext(), bannerList, bannerViewPager);
         bannerViewPager.setAdapter(bannerAdapter);
-        new TabLayoutMediator(bannerIndicator, bannerViewPager, (tab, position) -> {}).attach();
+        new TabLayoutMediator(bannerIndicator, bannerViewPager, (tab, position) -> {
+        }).attach();
 
         loadMon();
         return view;
     }
+
     private void loadMon() {
         //init arraylist
         arrmon = new ArrayList<>();
@@ -113,6 +119,7 @@ public class User_Home extends Fragment {
                         menuMon.setLayoutManager(layoutManager);
                         adpaterMonAn.notifyDataSetChanged();
                         //Toast.makeText(getActivity(), "Show data!", Toast.LENGTH_LONG).show();
+
 
                     }
 

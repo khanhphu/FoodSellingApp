@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cammoi">
+    android:background="@color/trangNga">
 
     <ImageView
         android:id="@+id/bannerImage"
-        android:layout_width="103dp"
-        android:layout_height="132dp"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_adorder"
+        android:src="@drawable/ic_banner1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.765"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.645" />
 
     <TextView
         android:id="@+id/bannerTitle"
@@ -34,15 +36,15 @@
         android:id="@+id/actionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="188dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="@color/camDam"
         android:paddingHorizontal="16dp"
         android:paddingVertical="8dp"
         android:text="Order now"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="14sp"
-        android:textAllCaps="false"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,9 @@
 package com.example.foodsellingapp.Model;
 
-public class DonHang {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class DonHang implements Serializable {
 private String maDH;
 private String maKH;
 private String ngayTao;
@@ -8,12 +11,20 @@ private int tongCong;
 private int tongSL;
 private String trangThai;
 //ngay, gio xac nhan don (admin)
-    private  String ngayXacNhan;
+private  String ngayXacNhan;
+//reason for huy
+    private String lyDo;
+    private String ptNhanHang;
+    private String ptThanhToan;
+    private String congThanhToan;
+    //updated for detail order
+    private ArrayList<CTDonHang> items; // Danh sách sản phẩm trong đơn hàng
 
     public DonHang() {
+        items = new ArrayList<>();
     }
 
-    public DonHang(String maDH, String maKH, String ngayTao, int tongCong, int tongSL, String trangThai, String ngayXacNhan) {
+    public DonHang(String maDH, String maKH, String ngayTao, int tongCong, int tongSL, String trangThai, String ngayXacNhan, String lyDo, String ptNhanHang, String ptThanhToan, String congThanhToan) {
         this.maDH = maDH;
         this.maKH = maKH;
         this.ngayTao = ngayTao;
@@ -21,6 +32,10 @@ private String trangThai;
         this.tongSL = tongSL;
         this.trangThai = trangThai;
         this.ngayXacNhan=ngayXacNhan;
+        this.lyDo=lyDo;
+        this.ptNhanHang=ptNhanHang;
+        this.ptThanhToan=ptThanhToan;
+        this.congThanhToan=congThanhToan;
     }
 
     public String getMaDH() {
@@ -77,5 +92,46 @@ private String trangThai;
 
     public void setNgayXacNhan(String ngayXacNhan) {
         this.ngayXacNhan = ngayXacNhan;
+    }
+
+    public String getLyDo() {
+        return lyDo;
+    }
+
+    public void setLyDo(String lyDo) {
+        this.lyDo = lyDo;
+    }
+
+    public String getPtNhanHang() {
+        return ptNhanHang;
+    }
+
+    public void setPtNhanHang(String ptNhanHang) {
+        this.ptNhanHang = ptNhanHang;
+    }
+
+    public String getPtThanhToan() {
+        return ptThanhToan;
+    }
+
+    public void setPtThanhToan(String ptThanhToan) {
+        this.ptThanhToan = ptThanhToan;
+    }
+
+    public String getCongThanhToan() {
+        return congThanhToan;
+    }
+
+    public void setCongThanhToan(String congThanhToan) {
+        this.congThanhToan = congThanhToan;
+    }
+
+
+    public ArrayList<CTDonHang> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<CTDonHang> items) {
+        this.items = items;
     }
 }

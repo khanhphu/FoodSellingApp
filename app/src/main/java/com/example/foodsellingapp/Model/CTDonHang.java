@@ -1,6 +1,8 @@
 package com.example.foodsellingapp.Model;
 
-public class CTDonHang {
+import java.io.Serializable;
+
+public class CTDonHang implements Serializable {
 private String maDH;
 private int gia;
 private String khuyenMai;
@@ -8,7 +10,8 @@ private int sl;
 private String tenMon;
 private String maMon;
 
-
+//update for CTDH show image each item
+    private  String itemImage;
 
     public CTDonHang() {
     }
@@ -22,16 +25,28 @@ private String maMon;
 //        this.maMon = maMon;
 //    }
 
-    public CTDonHang(String maDH, int gia, String khuyenMai, int sl, String tenMon, String maMon) {
+    public CTDonHang(String maDH, int gia, String khuyenMai, int sl, String tenMon, String maMon,String itemImage) {
         this.maDH = maDH;
         this.gia = gia;
         this.khuyenMai = khuyenMai;
         this.sl = sl;
         this.tenMon = tenMon;
         this.maMon = maMon;
+        this.itemImage=itemImage;
 
     }
-
+    // Calculate effective price (assuming khuyenMai is a discount percentage or amount)
+    public double getEffectivePrice() {
+        if (khuyenMai != null && !khuyenMai.isEmpty()) {
+            try {
+                double discount = Double.parseDouble(khuyenMai); // Assume percentage for now
+                return gia * (1 - discount / 100);
+            } catch (NumberFormatException e) {
+                return gia; // No discount if parsing fails
+            }
+        }
+        return gia;
+    }
 
 
     public String getMaDH() {
@@ -81,6 +96,12 @@ private String maMon;
         this.maMon = maMon;
     }
 
+    public String getItemImage() {
+        return itemImage;
+    }
 
+    public void setItemImage(String itemImage) {
+        this.itemImage = itemImage;
+    }
 }
 

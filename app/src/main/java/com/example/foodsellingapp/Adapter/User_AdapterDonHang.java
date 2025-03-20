@@ -37,10 +37,7 @@ private ListUserDonhangBinding binding;
         CTDonHang dh=arrDH.get(position);
         holder.dhTenMon.setText(dh.getTenMon());
         holder.dhSL.setText(""+dh.getSl()+"X");
-        holder.dhGia.setText(Format.formatVND(dh.getGia()));
-        if(holder.dhGia.getText().toString().isEmpty()){
-            holder.dhGia.setText("loigia");
-        }
+      holder.dhGia.setText(""+dh.getGia());
     }
 
     @Override

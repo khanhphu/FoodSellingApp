@@ -36,8 +36,8 @@ private ImageView statusIcon;
         titleText = findViewById(R.id.title_text);
         messageText = findViewById(R.id.message_text);
         btnContinue = findViewById(R.id.btnContinue);
-        shareButton = findViewById(R.id.share_button);
-        //get intent from User_DonHang
+        //shareButton = findViewById(R.id.share_button);
+       // //get intent from User_DonHang
         Intent intent=getIntent();
         maDH=intent.getStringExtra("maDH");
         txtResult=findViewById(R.id.txtResult);
@@ -61,7 +61,7 @@ private ImageView statusIcon;
         uploadDH(trangThaiThanhToan);
 
         btnContinue.setOnClickListener(v -> {
-            startActivity(new Intent(this, User_Menu.class));
+            startActivity(new Intent(this, User_Home.class));
         });
     }
 
@@ -75,7 +75,8 @@ private ImageView statusIcon;
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(PaymentConfirmation.this,
-                                "Upload payment status from ZaloPay for "+maDH+"successfully!",Toast.LENGTH_SHORT).show();
+                                "Upload payment status from ZaloPay for  "+maDH+"successfully!",Toast.LENGTH_SHORT).show();
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
