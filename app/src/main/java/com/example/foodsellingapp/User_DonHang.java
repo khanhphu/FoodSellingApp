@@ -5,13 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -21,6 +26,7 @@ import android.widget.Toast;
 import com.example.foodsellingapp.Adapter.User_AdapterDonHang;
 import com.example.foodsellingapp.Api.CreateOrder;
 import com.example.foodsellingapp.Model.CTDonHang;
+import com.example.foodsellingapp.Model.DonHang;
 import com.example.foodsellingapp.databinding.ActivityUserDonHangBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -330,10 +336,39 @@ public class User_DonHang extends AppCompatActivity {
             Toast.makeText(User_DonHang.this, "Cập nhật đơn hàng thành công!", Toast.LENGTH_SHORT).show();
             binding.secOrder.setVisibility(View.GONE);
             binding.secEmpty.setVisibility(View.VISIBLE);
+            showSuccessOrderDialog();
         }).addOnFailureListener(e -> {
             Toast.makeText(User_DonHang.this, e.toString(), Toast.LENGTH_SHORT).show();
         });
     }
+    public void showSuccessOrderDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View dialogView = inflater.inflate(R.layout.createorder_dialog, null);
+        builder.setView(dialogView);
+        AlertDialog dialog = builder.create();
+        Button goToOrder = dialogView.findViewById(R.id.goToOrder);
+        Button continueShopping = dialogView.findViewById(R.id.continueShopping);
+        // Adjust the dialog window to prevent clipping
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+        WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
+        params.width = WindowManager.LayoutParams.WRAP_CONTENT;
+        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        params.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(params);
+        goToOrder.setOnClickListener(v -> {
+            startActivity(new Intent(User_DonHang.this,User_DSDonHang.class));
+            dialog.dismiss();
+        });
+        continueShopping.setOnClickListener(v -> {
+            dialog.dismiss();
+            startActivity(new Intent(User_DonHang.this,User_Home.class));
+
+        });
+        // Customize dialog appearance
+        dialog.show();
+    }
+
 
     private void handleRadioButton() {
         // Delivery

@@ -101,6 +101,7 @@ public class Ad_MainPage extends AppCompatActivity {
                                 binding.txtAdEmail.setText(qs.getString("email"));
                             }
                         }
+
                     }
                 });
 

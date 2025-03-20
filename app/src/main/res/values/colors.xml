@@ -9,6 +9,10 @@
     <color name="vangNhatHon">#FEFFD2</color>
     <color name="xam">#ECECEC</color>
     <color name="cammoi">#EB9C5C</color>
+
+    <color name="status_choxacnhan">#FFF8E1</color>
+    <color name="status_xacnhan">#71BC1C</color>
+    <color name="status_huy">#C5FF3131</color>
 <color name="cardpro5">#FFE0B2</color>
 
 </resources>

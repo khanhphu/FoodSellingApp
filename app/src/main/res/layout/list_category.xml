@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="100dp"
+    android:layout_width="match_parent"
     android:layout_height="50dp"
     android:layout_marginEnd="8dp"
     app:cardCornerRadius="12dp"
@@ -35,7 +35,7 @@
                     android:id="@+id/imgEdit"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/ic_edit"
+                    android:src="@drawable/icon_ad_edit"
                     android:background="@color/xam"
                     android:contentDescription="Category Icon"
                     android:scaleType="centerInside"/>

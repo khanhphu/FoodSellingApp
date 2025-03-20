@@ -41,9 +41,7 @@ FirebaseFirestore firestore= FirebaseFirestore.getInstance();
         super.onCreate(savedInstanceState);
         binding=ActivityUserMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-//        btnBack=findViewById(R.id.btnbacktoolbar);
-        secSearch=findViewById(R.id.secSearch);
-
+        secSearch=binding.secSearch;
 //        btnBack.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

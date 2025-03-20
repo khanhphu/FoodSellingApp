@@ -40,7 +40,6 @@ public class User_MainPage extends AppCompatActivity implements NavigationView.O
 
        // bottom menu:
         replaceFragment(new User_Home());
-
         binding.bottomAppBar.setBackground(null);
         binding.bottomMenu.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override

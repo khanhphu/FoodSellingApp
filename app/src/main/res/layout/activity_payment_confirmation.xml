@@ -189,18 +189,18 @@
                     android:layout_height="wrap_content"
                     android:text="Continue to shopping"
                     android:textSize="16sp"
-                    android:backgroundTint="@color/cammoi"
+                    android:backgroundTint="@color/camDam"
                     android:textColor="@android:color/white"
                     android:padding="12dp"/>
-                <Button
-                    android:id="@+id/share_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Share via Messenger"
-                    android:textSize="16sp"
+<!--                <Button-->
+<!--                    android:id="@+id/share_button"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Share via Messenger"-->
+<!--                    android:textSize="16sp"-->
 
-                    android:textColor="@android:color/white"
-                    android:padding="12dp"/>
+<!--                    android:textColor="@android:color/white"-->
+<!--                    android:padding="12dp"/>-->
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

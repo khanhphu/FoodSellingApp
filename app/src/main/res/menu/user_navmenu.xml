@@ -37,12 +37,12 @@
                 android:icon="@drawable/ic_userpro5"
                 android:title="Account setting"/>
          <item
-              android:id="@+id/it_logout"
-          android:icon="@drawable/ic_logout"
+              android:id="@+id/it_login"
+          android:icon="@drawable/ic_login"
              android:title="Log in"/>
           <item
-               android:id="@+id/it_login"
-              android:icon="@drawable/ic_login"
+               android:id="@+id/it_logout"
+              android:icon="@drawable/ic_logout"
              android:title="Log out"/>
         </menu>
     </item>

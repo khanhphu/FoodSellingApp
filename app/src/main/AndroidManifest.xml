@@ -4,11 +4,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-<!--    sharing order by messager-->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- sharing order by messager -->
     <queries>
         <package android:name="com.facebook.orca" />
     </queries>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodSellingApp"
         tools:targetApi="31">
+        <activity
+            android:name=".OrderDetailActivity"
+            android:exported="false" />
         <activity
             android:name=".PaymentConfirmation"
             android:exported="false" />

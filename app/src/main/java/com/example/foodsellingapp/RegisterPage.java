@@ -96,6 +96,7 @@ private ProgressDialog progressDialog;
                 //create account
                 progressDialog.dismiss();
                 updateUserInfor();
+
             }
         })
                 .addOnFailureListener(new OnFailureListener() {

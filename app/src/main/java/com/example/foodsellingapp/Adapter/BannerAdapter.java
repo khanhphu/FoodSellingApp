@@ -42,7 +42,6 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.BannerView
             holder.title.setText(banner.getTitle());
             holder.actionButton.setText(banner.getAction());
 
-        //    holder.image.setImageResource(R.drawable.banner4);
     }
 
     @Override
@@ -54,11 +53,13 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.BannerView
      //   ImageView image;
         TextView title;
         Button actionButton;
+        ImageView bannerImage;
         public BannerViewHolder(@NonNull View itemView) {
             super(itemView);
           //  image = itemView.findViewById(R.id.bannerImage);
             title = itemView.findViewById(R.id.bannerTitle);
             actionButton = itemView.findViewById(R.id.actionButton);
+            bannerImage = itemView.findViewById(R.id.bannerImage);
         }
     }
 }

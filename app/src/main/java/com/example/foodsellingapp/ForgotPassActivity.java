@@ -86,6 +86,7 @@ public class ForgotPassActivity extends AppCompatActivity {
                     public void onSuccess(Void unused) {
                         Toast.makeText(ForgotPassActivity.this,"Instructions to reset password sent to"+for_email, Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

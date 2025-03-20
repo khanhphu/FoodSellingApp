@@ -15,12 +15,9 @@ import com.example.foodsellingapp.Adapter.User_AdapterDSDonHang;
 import com.example.foodsellingapp.Model.DonHang;
 import com.example.foodsellingapp.Model.MonAn;
 import com.example.foodsellingapp.databinding.ActivityUserDsdonHangBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -75,6 +72,7 @@ ImageView btnBack;
                         binding.userListDH.setLayoutManager(layoutManager);
                         adapterDSDonHang.notifyDataSetChanged();
                         Toast.makeText(User_DSDonHang.this, "Show data!", Toast.LENGTH_LONG).show();
+
                     }
                 });
 
