@@ -66,15 +66,8 @@ public class User_Home extends Fragment {
         menuMon.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
 
         // Categories RecyclerView
-//        categoryView = view.findViewById(R.id.categoriesRecyclerView);
-//        categoryList = new ArrayList<>();
-//        categoryList.add(new Category("Gà"));
-//        categoryList.add(new Category("Combo"));
-//        categoryList.add(new Category("Nước uống"));
-//        categoryList.add(new Category("Tráng miệng"));
-        //      categoryAdapter = new CategoryAdapter(requireContext(), categoryList);
-//        categoryView.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
-//        categoryView.setAdapter(categoryAdapter);
+        //categoryView = view.findViewById(R.id.categoriesRecyclerView);
+
 
         // Banner ViewPager2
         bannerViewPager = view.findViewById(R.id.bannerViewPager);

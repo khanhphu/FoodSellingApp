@@ -89,7 +89,7 @@ public class User_AdapterDSDonHang extends RecyclerView.Adapter<User_AdapterDSDo
                 holder.txtTrangThai.setBackgroundResource(R.drawable.status_cancelled_background);
                 holder.txtNgayXacNhan.setVisibility(View.VISIBLE);
                 holder.txtNgayXacNhan.setText(donHang.getNgayXacNhan());
-                holder.txtTrangThai.setTextColor(context.getResources().getColor(android.R.color.white));
+                holder.txtTrangThai.setTextColor(context.getResources().getColor(android.R.color.holo_red_light));
 
                 break;
         }

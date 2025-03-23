@@ -3,7 +3,7 @@ package com.example.foodsellingapp.Model;
 public class Category {
     private String name;
     private String cateId;
-    private int url;
+    private String url;
     public Category(){
 
     }
@@ -12,6 +12,13 @@ public class Category {
 
         this.name = name;
         this.cateId = cateId;
+    }
+    public Category(String name, String cateId, String url ) {
+
+        this.name = name;
+        this.cateId = cateId;
+        this.url=url;
+
     }
 
     public String getName() {
@@ -28,5 +35,13 @@ public class Category {
 
     public void setCateId(String cateId) {
         this.cateId = cateId;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
