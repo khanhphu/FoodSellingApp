@@ -15,18 +15,15 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
     }
     packaging {
         resources {
-            excludes.add("META-INF/DEPENDENCIES")
-            excludes.add("META-INF/LICENSE")
-            excludes.add("META-INF/LICENSE.md")
-            excludes.add("META-INF/NOTICE.md")
+            pickFirsts += "/META-INF/LICENSE.md"
+            pickFirsts += "/META-INF/NOTICE.md"
+            pickFirsts += "/META-INF/LICENSE"
+            pickFirsts += "/META-INF/NOTICE"
         }
     }
-
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -81,25 +78,15 @@ dependencies {
     //zalopay
     implementation("com.squareup.okhttp3:okhttp:4.6.0")
     implementation("commons-codec:commons-codec:1.14")
-
-    // Thêm các dependency cho Gmail API
-    implementation ("com.google.api-client:google-api-client:2.2.0")
-    implementation ("com.google.api-client:google-api-client-android:2.2.0")
-    implementation ("com.google.apis:google-api-services-gmail:v1-rev20220404-2.0.0")
-    implementation ("com.google.http-client:google-http-client-jackson2:1.43.3")
-    implementation ("javax.mail:javax.mail-api:1.6.2")
-    implementation ("com.sun.mail:android-mail:1.6.7")
-        implementation("com.google.android.gms:play-services-auth:21.2.0")
-    // RecyclerView
-    implementation ("androidx.recyclerview:recyclerview:1.3.2")
-    // Google API Client and Gmail API
-    implementation ("com.google.api-client:google-api-client:2.7.0")
-    implementation ("com.google.api-client:google-api-client-android:2.7.0")
-    implementation ("com.google.apis:google-api-services-gmail:v1-rev20231113-2.0.0")
-    implementation ("com.google.http-client:google-http-client-jackson2:1.44.2")
-    implementation ("com.google.http-client:google-http-client-gson:1.44.2")
-
-    // Google Auth Library (for com.google.auth)
-    implementation ("com.google.auth:google-auth-library-oauth2-http:1.24.1")
-
+    //
+//    implementation ("com.google.android.gms:play-services-auth:21.0.0")
+//    implementation ("com.google.api-client:google-api-client:1.33.0")
+//    implementation ("com.google.apis:google-api-services-gmail:v1-rev20220406-1.32.1")
+//    implementation ("com.google.auth:google-auth-library-oauth2-http:1.8.0")
+//    implementation ("javax.mail:javax.mail-api:1.6.2")
+//    implementation ("com.sun.mail:javax.mail:1.6.2")
+//    implementation ("com.google.apis:google-api-services-gmail:v1-rev20220406-2.0.0")
+    implementation("com.sun.mail:android-mail:1.6.7") {
+        exclude(group = "javax.mail", module = "javax.mail-api")
+    }
 }
