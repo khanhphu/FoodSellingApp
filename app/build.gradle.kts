@@ -16,7 +16,14 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    packaging {
+        resources {
+            pickFirsts += "/META-INF/LICENSE.md"
+            pickFirsts += "/META-INF/NOTICE.md"
+            pickFirsts += "/META-INF/LICENSE"
+            pickFirsts += "/META-INF/NOTICE"
+        }
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -71,4 +78,15 @@ dependencies {
     //zalopay
     implementation("com.squareup.okhttp3:okhttp:4.6.0")
     implementation("commons-codec:commons-codec:1.14")
+    //
+//    implementation ("com.google.android.gms:play-services-auth:21.0.0")
+//    implementation ("com.google.api-client:google-api-client:1.33.0")
+//    implementation ("com.google.apis:google-api-services-gmail:v1-rev20220406-1.32.1")
+//    implementation ("com.google.auth:google-auth-library-oauth2-http:1.8.0")
+//    implementation ("javax.mail:javax.mail-api:1.6.2")
+//    implementation ("com.sun.mail:javax.mail:1.6.2")
+//    implementation ("com.google.apis:google-api-services-gmail:v1-rev20220406-2.0.0")
+    implementation("com.sun.mail:android-mail:1.6.7") {
+        exclude(group = "javax.mail", module = "javax.mail-api")
+    }
 }
