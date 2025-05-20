@@ -52,8 +52,13 @@ dependencies {
     implementation("com.google.firebase:firebase-auth:23.0.0")
     implementation("com.google.firebase:firebase-database:21.0.0")
     implementation("com.google.firebase:firebase-storage:21.0.0")
+//    implementation(fileTree(mapOf(
+//        "dir" to "C:\\Users\\Phung\\Desktop\\tonghop\\ZaloPayLib",
+//        "include" to listOf("*.aar", "*.jar"),
+//        "exclude" to listOf("")
+//    )))
     implementation(fileTree(mapOf(
-        "dir" to "C:\\Users\\Phung\\Desktop\\tonghop\\ZaloPayLib",
+        "dir" to "C:\\Users\\Phung\\Documents\\ZaloPayLib",
         "include" to listOf("*.aar", "*.jar"),
         "exclude" to listOf("")
     )))
